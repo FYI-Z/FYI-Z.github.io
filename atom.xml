@@ -6,7 +6,7 @@
   <link href="https://fyi-z.github.io/atom.xml" rel="self"/>
   
   <link href="https://fyi-z.github.io/"/>
-  <updated>2022-08-25T00:51:22.572Z</updated>
+  <updated>2022-08-25T06:55:31.879Z</updated>
   <id>https://fyi-z.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux安装MySQL5.7</title>
+    <link href="https://fyi-z.github.io/2022/08/25/linux-an-zhuang-mysql5-7/"/>
+    <id>https://fyi-z.github.io/2022/08/25/linux-an-zhuang-mysql5-7/</id>
+    <published>2022-08-25T02:13:28.000Z</published>
+    <updated>2022-08-25T06:55:31.879Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安装步骤&quot;&gt;&lt;a href=&quot;#安装步骤&quot; class=&quot;headerlink&quot; title=&quot;安装步骤&quot;&gt;&lt;/a&gt;安装步骤&lt;/h2&gt;&lt;h3 id=&quot;查看是否已有老版本MySQL并卸载&quot;&gt;&lt;a href=&quot;#查看是否已有老版本MySQL并卸载&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="MySQL" scheme="https://fyi-z.github.io/categories/MySQL/"/>
+    
+    
+    <category term="MySQL" scheme="https://fyi-z.github.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo常用命令</title>

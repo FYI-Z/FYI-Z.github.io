@@ -4,13 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo常用命令, 奔跑的蜗牛">
-    <meta name="description" content="一、安装、升级npm install hexo -g #安装  
-npm update hexo -g #升级  
-hexo init #初始化
+    <meta name="keywords" content="Linux安装MySQL5.7, 奔跑的蜗牛">
+    <meta name="description" content="安装步骤查看是否已有老版本MySQL并卸载查看包名：rpm -qa|grep -i mysql
+删除命令：rpm -ev 文件名
 
-二、简写hexo n &#34;我的博客&#34; == hexo new &#34;我的博客&#34; #新建文章
-hex">
+如果提示依赖包错误，则使用以下命令尝试：
+rpm -ev 文件名 --nodeps
+
+查找之前老版本MySQ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +23,7 @@ hex">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo常用命令 | 奔跑的蜗牛</title>
+    <title>Linux安装MySQL5.7 | 奔跑的蜗牛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -342,12 +343,12 @@ hex">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo常用命令</h1>
+                    <h1 class="description center-align post-title">Linux安装MySQL5.7</h1>
                 </div>
             </div>
         </div>
@@ -371,8 +372,8 @@ hex">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -383,8 +384,8 @@ hex">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
                             </a>
                         
                     </div>
@@ -396,7 +397,7 @@ hex">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-24
+                    2022-08-25
                 </div>
                 
 
@@ -425,49 +426,132 @@ hex">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、安装、升级"><a href="#一、安装、升级" class="headerlink" title="一、安装、升级"></a>一、安装、升级</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g <span class="token comment">#安装  </span>
-<span class="token function">npm</span> update hexo -g <span class="token comment">#升级  </span>
-hexo init <span class="token comment">#初始化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="查看是否已有老版本MySQL并卸载"><a href="#查看是否已有老版本MySQL并卸载" class="headerlink" title="查看是否已有老版本MySQL并卸载"></a>查看是否已有老版本MySQL并卸载</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">查看包名：rpm -qa<span class="token operator">|</span><span class="token function">grep</span> -i mysql
+删除命令：rpm -ev 文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="二、简写"><a href="#二、简写" class="headerlink" title="二、简写"></a>二、简写</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token string">"我的博客"</span> <span class="token operator">==</span> hexo new <span class="token string">"我的博客"</span> <span class="token comment">#新建文章</span>
-hexo p <span class="token operator">==</span> hexo publish
-hexo g <span class="token operator">==</span> hexo generate<span class="token comment">#生成</span>
-hexo s <span class="token operator">==</span> hexo server <span class="token comment">#启动服务预览</span>
-hexo d <span class="token operator">==</span> hexo deploy<span class="token comment">#部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果提示依赖包错误，则使用以下命令尝试：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -ev 文件名 --nodeps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="三、服务器"><a href="#三、服务器" class="headerlink" title="三、服务器"></a>三、服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span>
-hexo server -s <span class="token comment">#静态模式</span>
-hexo server -p <span class="token number">5000</span> <span class="token comment">#更改端口</span>
-hexo server -i <span class="token number">192.168</span>.1.1 <span class="token comment">#自定义 IP</span>
-hexo clean <span class="token comment">#清除缓存 网页正常情况下可以忽略此条命令</span>
-hexo g <span class="token comment">#生成静态网页</span>
-hexo d <span class="token comment">#开始部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>查找之前老版本MySQL的目录并删除：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">find</span> / -name mysql 
+<span class="token function">rm</span> -rf 目录名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="四、监视文件变动"><a href="#四、监视文件变动" class="headerlink" title="四、监视文件变动"></a>四、监视文件变动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo generate <span class="token comment">#使用 Hexo 生成静态文件快速而且简单</span>
-hexo generate --watch <span class="token comment">#监视文件变动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>注意：</strong>卸载后/etc/my.cnf不会删除，需要进行手工删除</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rm</span> -rf /etc/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="五、完成后部署"><a href="#五、完成后部署" class="headerlink" title="五、完成后部署"></a>五、完成后部署</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">两个命令作用相同
-hexo generate --deploy
-hexo deploy --generate
-hexo deploy -g
-hexo server -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>再次查找机器是否安装MySQL</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">rpm</span> -qa<span class="token operator">|</span><span class="token function">grep</span> -i mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="六、草稿"><a href="#六、草稿" class="headerlink" title="六、草稿"></a>六、草稿</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="安装MySQL5-7"><a href="#安装MySQL5-7" class="headerlink" title="安装MySQL5.7"></a>安装MySQL5.7</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a></p>
+<p>自己用的安装包：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1eLjtjBJ-v9CJ19U5CqzbHQ">https://pan.baidu.com/s/1eLjtjBJ-v9CJ19U5CqzbHQ</a></p>
+<p><strong>提取码：ipel</strong></p>
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/01.png" class="">
 
-<h2 id="七、模板"><a href="#七、模板" class="headerlink" title="七、模板"></a>七、模板</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token string">"postName"</span> <span class="token comment">#新建文章</span>
-hexo new page <span class="token string">"pageName"</span> <span class="token comment">#新建页面</span>
-hexo generate <span class="token comment">#生成静态页面至public目录</span>
-hexo server <span class="token comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
-hexo deploy <span class="token comment">#将.deploy目录部署到GitHub</span>
-hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>
-hexo new photo <span class="token string">"My Gallery"</span>
-hexo new <span class="token string">"Hello World"</span> --lang tw<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>传输到Linux后解压：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -xvf mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="八、推送到服务器上"><a href="#八、推送到服务器上" class="headerlink" title="八、推送到服务器上"></a>八、推送到服务器上</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token comment">#写文章</span>
-hexo g <span class="token comment">#生成</span>
-hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/02.png" class="">
 
-<p>更全面详细的指令使用参考官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
+<p>移动到合适目录并重命名：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> mysql-5.7.30-linux-glibc2.12-x86_64 /usr/local/mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/03.png" class="">
+
+<p>创建MySQL用户组合用户并修改权限：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">groupadd</span> mysql
+<span class="token function">useradd</span> -r -g mysql mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>创建数据目录并赋予权限：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> -p  /data/mysql              <span class="token comment">#创建目录</span>
+<span class="token function">chown</span> mysql:mysql -R /data/mysql   <span class="token comment">#赋予权限</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/04.png" class="">
+
+
+
+<p>配置my.cnf：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">vim</span> /etc/my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>内容如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+bind-address<span class="token operator">=</span><span class="token number">0.0</span>.0.0
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">3306</span>
+<span class="token assign-left variable">user</span><span class="token operator">=</span>mysql
+<span class="token comment">#根据自己路径修改</span>
+<span class="token assign-left variable">basedir</span><span class="token operator">=</span>/usr/local/mysql
+<span class="token comment">#根据自己路径修改</span>
+<span class="token assign-left variable">datadir</span><span class="token operator">=</span>/data/mysql
+<span class="token assign-left variable">socket</span><span class="token operator">=</span>/tmp/mysql.sock
+log-error<span class="token operator">=</span>/data/mysql/mysql.err
+pid-file<span class="token operator">=</span>/data/mysql/mysql.pid
+<span class="token comment">#character config</span>
+<span class="token assign-left variable">character_set_server</span><span class="token operator">=</span>utf8mb4
+symbolic-links<span class="token operator">=</span><span class="token number">0</span>
+<span class="token assign-left variable">explicit_defaults_for_timestamp</span><span class="token operator">=</span>true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>初始化数据库：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">进入MySQL的bin目录：
+<span class="token builtin class-name">cd</span> /usr/local/mysql/bin/
+初始化：
+./mysqld --defaults-file<span class="token operator">=</span>/etc/my.cnf --basedir<span class="token operator">=</span>/usr/local/mysql/ --datadir<span class="token operator">=</span>/data/mysql/ --user<span class="token operator">=</span>mysql --initialize<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>若出现：</p>
+<p>./mysqld: error while loading shared libraries: libaio.so.1: cannot open shared object file: No such</p>
+<p>查看密码：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> /data/mysql/mysql.err<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/05.png" class="">
+
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">先将mysql.server放置到/etc/init.d/mysql中：
+<span class="token function">cp</span> /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+
+启动MySQL：
+<span class="token function">service</span> mysql start
+<span class="token function">ps</span> -ef<span class="token operator">|</span><span class="token function">grep</span> mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>如图显示，说明MySQL已经安装成功！</p>
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/06.png" class="">
+
+<p>修改密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">使用上面的随机密码登录MySQL后执行下面三步操作，重新登录
+SET PASSWORD <span class="token operator">=</span> PASSWORD<span class="token punctuation">(</span><span class="token string">'123456'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'localhost'</span> PASSWORD EXPIRE NEVER<span class="token punctuation">;</span>
+FLUSH PRIVILEGES<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/07.png" class="">
+
+<p><strong>设置任意目录都能执行mysql -u root -p登录MySQL（可选）：</strong></p>
+<p>1、进入/etc目录，编辑profile文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /etc
+<span class="token function">vi</span> profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>2、在文件末尾修改PATH变量，如图：在PATH变量的加上脚本的路径（存在其他路径用冒号“:”隔开在末尾添加）</p>
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/08.png" class="">
+
+<p>3、保存修改的profile文件，让修改立即生效，运行命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">source</span> /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p><strong>这时候仍无法使用远程连接，登录数据库执行下面三个命令</strong></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">use mysql                                            <span class="token comment">#访问mysql库</span>
+update user <span class="token builtin class-name">set</span> <span class="token function">host</span> <span class="token operator">=</span> <span class="token string">'%'</span> where user <span class="token operator">=</span> <span class="token string">'root'</span><span class="token punctuation">;</span>      <span class="token comment">#使root能再任何host访问</span>
+FLUSH PRIVILEGES<span class="token punctuation">;</span>                                    <span class="token comment">#刷新</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/09.png" class="">
+
+
+
+<p><strong>再次使用远程连接</strong></p>
+<img src="/2022/08/25/linux-an-zhuang-mysql5-7/10.png" class="">
+
+
+
+<p><strong>连接成功！！！</strong></p>
+<p><strong>MySQL5.7装好了，这是我卸载了其他版本的MySQL重装的过程，按这个流程应该能顺利安装</strong></p>
+<p><strong>远程连接注意防火墙问题！！！</strong><a target="_blank" rel="noopener" href="https://feiutech.blog.csdn.net/article/details/74502967?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-8.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-8.control">防火墙相关操作</a></p>
 
                 
             </div>
@@ -494,7 +578,7 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fyi-z.github.io/2022/08/24/hexo-chang-yong-ming-ling/">https://fyi-z.github.io/2022/08/24/hexo-chang-yong-ming-ling/</a>
+                    <a href="https://fyi-z.github.io/2022/08/25/linux-an-zhuang-mysql5-7/">https://fyi-z.github.io/2022/08/25/linux-an-zhuang-mysql5-7/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,8 +616,8 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -614,9 +698,10 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/08/25/linux-an-zhuang-mysql5-7/">
                     <div class="card-image">
@@ -634,9 +719,9 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -649,6 +734,7 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -667,13 +753,13 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/08/23/hello-world/">
+                <a href="/2022/08/24/hexo-chang-yong-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="hexo常用命令">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">hexo常用命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -684,7 +770,7 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-24
                             </span>
                         <span class="publish-author">
                             
