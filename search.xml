@@ -4,13 +4,50 @@
   
     
     <entry>
+      <title>hexo常用命令</title>
+      <link href="/2022/08/24/hexo-chang-yong-ming-ling/"/>
+      <url>/2022/08/24/hexo-chang-yong-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、安装、升级"><a href="#一、安装、升级" class="headerlink" title="一、安装、升级"></a>一、安装、升级</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g <span class="token comment">#安装  </span><span class="token function">npm</span> update hexo -g <span class="token comment">#升级  </span>hexo init <span class="token comment">#初始化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="二、简写"><a href="#二、简写" class="headerlink" title="二、简写"></a>二、简写</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token string">"我的博客"</span> <span class="token operator">==</span> hexo new <span class="token string">"我的博客"</span> <span class="token comment">#新建文章</span>hexo p <span class="token operator">==</span> hexo publishhexo g <span class="token operator">==</span> hexo generate<span class="token comment">#生成</span>hexo s <span class="token operator">==</span> hexo server <span class="token comment">#启动服务预览</span>hexo d <span class="token operator">==</span> hexo deploy<span class="token comment">#部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="三、服务器"><a href="#三、服务器" class="headerlink" title="三、服务器"></a>三、服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span>hexo server -s <span class="token comment">#静态模式</span>hexo server -p <span class="token number">5000</span> <span class="token comment">#更改端口</span>hexo server -i <span class="token number">192.168</span>.1.1 <span class="token comment">#自定义 IP</span>hexo clean <span class="token comment">#清除缓存 网页正常情况下可以忽略此条命令</span>hexo g <span class="token comment">#生成静态网页</span>hexo d <span class="token comment">#开始部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="四、监视文件变动"><a href="#四、监视文件变动" class="headerlink" title="四、监视文件变动"></a>四、监视文件变动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo generate <span class="token comment">#使用 Hexo 生成静态文件快速而且简单</span>hexo generate --watch <span class="token comment">#监视文件变动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="五、完成后部署"><a href="#五、完成后部署" class="headerlink" title="五、完成后部署"></a>五、完成后部署</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">两个命令作用相同hexo generate --deployhexo deploy --generatehexo deploy -ghexo server -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="六、草稿"><a href="#六、草稿" class="headerlink" title="六、草稿"></a>六、草稿</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="七、模板"><a href="#七、模板" class="headerlink" title="七、模板"></a>七、模板</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token string">"postName"</span> <span class="token comment">#新建文章</span>hexo new page <span class="token string">"pageName"</span> <span class="token comment">#新建页面</span>hexo generate <span class="token comment">#生成静态页面至public目录</span>hexo server <span class="token comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>hexo deploy <span class="token comment">#将.deploy目录部署到GitHub</span>hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>hexo new photo <span class="token string">"My Gallery"</span>hexo new <span class="token string">"Hello World"</span> --lang tw<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="八、推送到服务器上"><a href="#八、推送到服务器上" class="headerlink" title="八、推送到服务器上"></a>八、推送到服务器上</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token comment">#写文章</span>hexo g <span class="token comment">#生成</span>hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>更全面详细的指令使用参考官网：<a href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2022/08/23/hello-world/"/>
       <url>/2022/08/23/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
       
     </entry>
     

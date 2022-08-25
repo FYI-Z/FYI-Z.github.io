@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>奔跑的蜗牛</title>
   
+  <subtitle>奔跑的蜗牛</subtitle>
+  <link href="https://fyi-z.github.io/atom.xml" rel="self"/>
   
-  <link href="http://fyi-z.github.io/atom.xml" rel="self"/>
-  
-  <link href="http://fyi-z.github.io/"/>
-  <updated>2022-08-23T07:08:04.789Z</updated>
-  <id>http://fyi-z.github.io/</id>
+  <link href="https://fyi-z.github.io/"/>
+  <updated>2022-08-25T00:51:22.572Z</updated>
+  <id>https://fyi-z.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>蜗牛</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo常用命令</title>
+    <link href="https://fyi-z.github.io/2022/08/24/hexo-chang-yong-ming-ling/"/>
+    <id>https://fyi-z.github.io/2022/08/24/hexo-chang-yong-ming-ling/</id>
+    <published>2022-08-24T08:45:40.000Z</published>
+    <updated>2022-08-25T00:51:22.572Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、安装、升级&quot;&gt;&lt;a href=&quot;#一、安装、升级&quot; class=&quot;headerlink&quot; title=&quot;一、安装、升级&quot;&gt;&lt;/a&gt;一、安装、升级&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://fyi-z.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Hexo" scheme="https://fyi-z.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://fyi-z.github.io/2022/08/23/hello-world/"/>
-    <id>http://fyi-z.github.io/2022/08/23/hello-world/</id>
+    <link href="https://fyi-z.github.io/2022/08/23/hello-world/"/>
+    <id>https://fyi-z.github.io/2022/08/23/hello-world/</id>
     <published>2022-08-23T07:08:04.789Z</published>
-    <updated>2022-08-23T07:08:04.789Z</updated>
+    <updated>2022-08-24T09:26:19.778Z</updated>
     
     
       
@@ -34,6 +59,10 @@
     
     
     
+    <category term="前端" scheme="https://fyi-z.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Hexo" scheme="https://fyi-z.github.io/tags/Hexo/"/>
     
   </entry>
   
