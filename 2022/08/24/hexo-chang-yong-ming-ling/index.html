@@ -403,47 +403,47 @@ hex">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、安装、升级"><a href="#一、安装、升级" class="headerlink" title="一、安装、升级"></a>一、安装、升级</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g <span class="token comment">#安装  </span>
+                <h2 id="一、安装、升级"><a href="#一、安装、升级" class="headerlink" title="一、安装、升级"></a>一、安装、升级</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo -g <span class="token comment">#安装  </span>
 <span class="token function">npm</span> update hexo -g <span class="token comment">#升级  </span>
-hexo init <span class="token comment">#初始化</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+hexo init <span class="token comment">#初始化</span></code></pre>
 
-<h2 id="二、简写"><a href="#二、简写" class="headerlink" title="二、简写"></a>二、简写</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token string">"我的博客"</span> <span class="token operator">==</span> hexo new <span class="token string">"我的博客"</span> <span class="token comment">#新建文章</span>
+<h2 id="二、简写"><a href="#二、简写" class="headerlink" title="二、简写"></a>二、简写</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token string">"我的博客"</span> <span class="token operator">==</span> hexo new <span class="token string">"我的博客"</span> <span class="token comment">#新建文章</span>
 hexo p <span class="token operator">==</span> hexo publish
 hexo g <span class="token operator">==</span> hexo generate<span class="token comment">#生成</span>
 hexo s <span class="token operator">==</span> hexo server <span class="token comment">#启动服务预览</span>
-hexo d <span class="token operator">==</span> hexo deploy<span class="token comment">#部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo d <span class="token operator">==</span> hexo deploy<span class="token comment">#部署</span></code></pre>
 
-<h2 id="三、服务器"><a href="#三、服务器" class="headerlink" title="三、服务器"></a>三、服务器</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span>
+<h2 id="三、服务器"><a href="#三、服务器" class="headerlink" title="三、服务器"></a>三、服务器</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo server <span class="token comment">#Hexo 会监视文件变动并自动更新，您无须重启服务器。</span>
 hexo server -s <span class="token comment">#静态模式</span>
 hexo server -p <span class="token number">5000</span> <span class="token comment">#更改端口</span>
 hexo server -i <span class="token number">192.168</span>.1.1 <span class="token comment">#自定义 IP</span>
 hexo clean <span class="token comment">#清除缓存 网页正常情况下可以忽略此条命令</span>
 hexo g <span class="token comment">#生成静态网页</span>
-hexo d <span class="token comment">#开始部署</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo d <span class="token comment">#开始部署</span></code></pre>
 
-<h2 id="四、监视文件变动"><a href="#四、监视文件变动" class="headerlink" title="四、监视文件变动"></a>四、监视文件变动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo generate <span class="token comment">#使用 Hexo 生成静态文件快速而且简单</span>
-hexo generate --watch <span class="token comment">#监视文件变动</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="四、监视文件变动"><a href="#四、监视文件变动" class="headerlink" title="四、监视文件变动"></a>四、监视文件变动</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo generate <span class="token comment">#使用 Hexo 生成静态文件快速而且简单</span>
+hexo generate --watch <span class="token comment">#监视文件变动</span></code></pre>
 
-<h2 id="五、完成后部署"><a href="#五、完成后部署" class="headerlink" title="五、完成后部署"></a>五、完成后部署</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">两个命令作用相同
+<h2 id="五、完成后部署"><a href="#五、完成后部署" class="headerlink" title="五、完成后部署"></a>五、完成后部署</h2><pre class="language-bash" data-language="bash"><code class="language-bash">两个命令作用相同
 hexo generate --deploy
 hexo deploy --generate
 hexo deploy -g
-hexo server -g<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo server -g</code></pre>
 
-<h2 id="六、草稿"><a href="#六、草稿" class="headerlink" title="六、草稿"></a>六、草稿</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo publish <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="六、草稿"><a href="#六、草稿" class="headerlink" title="六、草稿"></a>六、草稿</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo publish <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span></code></pre>
 
-<h2 id="七、模板"><a href="#七、模板" class="headerlink" title="七、模板"></a>七、模板</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token string">"postName"</span> <span class="token comment">#新建文章</span>
+<h2 id="七、模板"><a href="#七、模板" class="headerlink" title="七、模板"></a>七、模板</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo new <span class="token string">"postName"</span> <span class="token comment">#新建文章</span>
 hexo new page <span class="token string">"pageName"</span> <span class="token comment">#新建页面</span>
 hexo generate <span class="token comment">#生成静态页面至public目录</span>
 hexo server <span class="token comment">#开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span>
 hexo deploy <span class="token comment">#将.deploy目录部署到GitHub</span>
 hexo new <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>
 hexo new photo <span class="token string">"My Gallery"</span>
-hexo new <span class="token string">"Hello World"</span> --lang tw<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+hexo new <span class="token string">"Hello World"</span> --lang tw</code></pre>
 
-<h2 id="八、推送到服务器上"><a href="#八、推送到服务器上" class="headerlink" title="八、推送到服务器上"></a>八、推送到服务器上</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token comment">#写文章</span>
+<h2 id="八、推送到服务器上"><a href="#八、推送到服务器上" class="headerlink" title="八、推送到服务器上"></a>八、推送到服务器上</h2><pre class="language-bash" data-language="bash"><code class="language-bash">hexo n <span class="token comment">#写文章</span>
 hexo g <span class="token comment">#生成</span>
-hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</span></code></pre>
 
 <p>更全面详细的指令使用参考官网：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands">指令 | Hexo</a></p>
 
@@ -1211,7 +1211,7 @@ hexo d <span class="token comment">#部署 #可与hexo g合并为 hexo d -g</spa
                         var today = new Date();
                         var startYear = "2022";
                         var startMonth = "8";
-                        var startDate = "20";
+                        var startDate = "23";
                         var startHour = "0";
                         var startMinute = "0";
                         var startSecond = "0";
