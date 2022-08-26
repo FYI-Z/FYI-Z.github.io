@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>常用Git命令</title>
+      <link href="/2022/08/26/chang-yong-git-ming-ling/"/>
+      <url>/2022/08/26/chang-yong-git-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"用户名"</span>   <span class="token comment">#配置全局的git提交用户名</span><span class="token function">git</span> config --global user.email <span class="token string">"邮箱"</span>    <span class="token comment">#配置全局的git提交者的邮箱</span><span class="token function">git</span> clone 仓库地址<span class="token comment">#将远程仓库克隆到本地</span><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span><span class="token comment">#添加文件（控制所有文件）</span><span class="token function">git</span> <span class="token function">add</span> 文件名<span class="token comment">#控制单个文件</span><span class="token function">git</span> commit -m <span class="token string">'本次提交的说明'</span><span class="token comment">#提交文件</span><span class="token function">git</span> push<span class="token comment">#上传文件</span><span class="token function">git</span> branch  <span class="token comment">#查看分支</span><span class="token function">git</span> pull<span class="token comment">#合并更新</span><span class="token function">git</span> branch 分支名    <span class="token comment">#创建分支</span><span class="token function">git</span> checkout -b 分支名   <span class="token comment">#创建并切换到当前分支</span><span class="token comment">### 合并分支并提交到远程仓库</span><span class="token function">git</span> checkout master   <span class="token comment">#先切换到主分支</span><span class="token function">git</span> merge 分支名  <span class="token comment">#将分支合并到主分支</span><span class="token function">git</span> push <span class="token comment">#将本地代码推送到云端</span></code></pre><h2 id="速查表"><a href="#速查表" class="headerlink" title="速查表"></a>速查表</h2><img src="/2022/08/26/chang-yong-git-ming-ling/01.png" class="" title="Git命令速查表">]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux安装MySQL5.7</title>
       <link href="/2022/08/25/linux-an-zhuang-mysql5-7/"/>
       <url>/2022/08/25/linux-an-zhuang-mysql5-7/</url>
