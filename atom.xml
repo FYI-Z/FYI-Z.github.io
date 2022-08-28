@@ -6,7 +6,7 @@
   <link href="https://fyi-z.github.io/atom.xml" rel="self"/>
   
   <link href="https://fyi-z.github.io/"/>
-  <updated>2022-08-26T02:07:48.355Z</updated>
+  <updated>2022-08-28T02:28:57.163Z</updated>
   <id>https://fyi-z.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dialog预览URL文件</title>
+    <link href="https://fyi-z.github.io/2022/08/28/dialog-yu-lan-url-wen-jian/"/>
+    <id>https://fyi-z.github.io/2022/08/28/dialog-yu-lan-url-wen-jian/</id>
+    <published>2022-08-28T01:55:08.000Z</published>
+    <updated>2022-08-28T02:28:57.163Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;Android使用Dialog预览URL资源文件&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;1-Dialog弹窗&quot;&gt;&lt;a href=&quot;#1-Dialog弹窗&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://fyi-z.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="Android" scheme="https://fyi-z.github.io/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>常用Git命令</title>
