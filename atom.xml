@@ -6,7 +6,7 @@
   <link href="https://fyi-z.github.io/atom.xml" rel="self"/>
   
   <link href="https://fyi-z.github.io/"/>
-  <updated>2022-08-28T02:28:57.163Z</updated>
+  <updated>2022-09-08T01:41:37.332Z</updated>
   <id>https://fyi-z.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis基础知识</title>
+    <link href="https://fyi-z.github.io/2022/09/05/redis-ji-chu-zhi-shi/"/>
+    <id>https://fyi-z.github.io/2022/09/05/redis-ji-chu-zhi-shi/</id>
+    <published>2022-09-05T09:37:04.000Z</published>
+    <updated>2022-09-08T01:41:37.332Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;note success no-icon&quot;&gt;&lt;p&gt;尚硅谷Redis 6笔记&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;1-NoSQL-数据库&quot;&gt;&lt;a href=&quot;#1-NoSQL-数据库&quot; class=&quot;headerlink&quot; title=&quot;1.</summary>
+        
+      
+    
+    
+    
+    
+    <category term="NoSQL" scheme="https://fyi-z.github.io/tags/NoSQL/"/>
+    
+    <category term="中间件" scheme="https://fyi-z.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>Dialog预览URL文件</title>
