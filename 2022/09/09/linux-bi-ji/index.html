@@ -4,9 +4,20 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx入门, 奔跑的蜗牛">
-    <meta name="description" content="1. Nginx简介
-Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамбл">
+    <meta name="keywords" content="Linux笔记, 奔跑的蜗牛">
+    <meta name="description" content="Linux入门
+
+
+1. Linux目录结构
+linux的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下再创建其他的目录。
+
+在Linux世界里，一切皆文件
+
+
+
+
+
+/bin：bin 是 Binari">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +29,7 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nginx入门 | 奔跑的蜗牛</title>
+    <title>Linux笔记 | 奔跑的蜗牛</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -316,12 +327,12 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nginx入门</h1>
+                    <h1 class="description center-align post-title">Linux笔记</h1>
                 </div>
             </div>
         </div>
@@ -345,8 +356,8 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Nginx/">
-                                <span class="chip bg-color">Nginx</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -357,8 +368,8 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                中间件
+                            <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                操作系统
                             </a>
                         
                     </div>
@@ -370,28 +381,28 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-08
+                    2022-09-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    15 分
                 </div>
                 
 
@@ -414,180 +425,403 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-Nginx简介"><a href="#1-Nginx简介" class="headerlink" title="1. Nginx简介"></a>1. Nginx简介</h2><ul>
-<li><p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。2011年6月1日，nginx 1.0.4发布。</p>
-</li>
-<li><p>其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。在全球活跃的网站中有12.18%的使用比率，大约为2220万个网站。</p>
-</li>
-<li><p>Nginx 是一个安装非常的简单、配置文件非常简洁（还能够支持perl语法）、Bug非常少的服务。Nginx 启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够不间断服务的情况下进行软件版本的升级。</p>
-</li>
-<li><p>Nginx代码完全用C语言从头写成。官方数据测试表明能够支持高达 50,000 个并发连接数的响应。</p>
-</li>
-</ul>
-<h2 id="2-Nginx作用"><a href="#2-Nginx作用" class="headerlink" title="2. Nginx作用"></a>2. Nginx作用</h2><div class="note success no-icon"><p>Http代理，反向代理：作为web服务器最常用的功能之一，尤其是反向代理。</p>
+                <div class="note success no-icon"><p>Linux入门</p>
 </div>
 
-<ul>
-<li>正向代理：代理客户端</li>
-</ul>
-<img src="/2022/09/08/nginx-ru-men/01.png" class="">
-
-<ul>
-<li>反向代理：代理服务器</li>
-</ul>
-<img src="/2022/09/08/nginx-ru-men/02.png" class="">
-
-<div class="note success no-icon"><p>Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。扩展策略，就天马行空，只有你想不到的没有他做不到的。</p>
-</div>
-
-<ul>
-<li>轮询</li>
-</ul>
-<img src="/2022/09/08/nginx-ru-men/03.png" class="">
-
-<ul>
-<li>加权轮询（可根据服务器性能设置权重，处理更多请求）</li>
-</ul>
-<img src="/2022/09/08/nginx-ru-men/04.png" class="">
-
-<ul>
-<li>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。</li>
-</ul>
-<img src="/2022/09/08/nginx-ru-men/05.png" class="">
-
-<div class="note success no-icon"><p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的（如：css、html、jpg、js等等文件），这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p>
-</div>
-
-<img src="/2022/09/08/nginx-ru-men/06.png" class="">
-
-<h2 id="3-Nginx安装"><a href="#3-Nginx安装" class="headerlink" title="3. Nginx安装"></a>3. Nginx安装</h2><h3 id="3-1-windows下安装"><a href="#3-1-windows下安装" class="headerlink" title="3.1 windows下安装"></a>3.1 windows下安装</h3><h4 id="3-1-1-下载nginx"><a href="#3-1-1-下载nginx" class="headerlink" title="3.1.1 下载nginx"></a>3.1.1 下载nginx</h4><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 下载稳定版本。<br>以nginx/Windows-1.16.1为例，直接下载 nginx-1.16.1.zip。<br>下载后解压，解压后如下：</p>
-<img src="/2022/09/08/nginx-ru-men/07.png" class="">
-
-<h4 id="3-1-2-启动nginx"><a href="#3-1-2-启动nginx" class="headerlink" title="3.1.2 启动nginx"></a>3.1.2 启动nginx</h4><ol>
-<li>直接双击nginx.exe，双击后一个黑色的弹窗一闪而过</li>
-<li>打开cmd命令窗口，切换到nginx解压目录下，输入命令 <code>nginx.exe</code> ，回车即可</li>
+<h2 id="1-Linux目录结构"><a href="#1-Linux目录结构" class="headerlink" title="1. Linux目录结构"></a>1. Linux目录结构</h2><ol>
+<li><p>linux的文件系统是采用级层式的树状目录结构，在此结构中的最上层是根目录“/”，然后在此目录下再创建其他的目录。</p>
+</li>
+<li><p><strong>在Linux世界里，一切皆文件</strong></p>
+</li>
 </ol>
-<h4 id="3-1-3-检查nginx是否启动成功"><a href="#3-1-3-检查nginx是否启动成功" class="headerlink" title="3.1.3 检查nginx是否启动成功"></a>3.1.3 检查nginx是否启动成功</h4><p>直接在浏览器地址栏输入网址 <a target="_blank" rel="noopener" href="http://localhost/">http://localhost:80</a> 回车，出现以下页面说明启动成功！</p>
-<img src="/2022/09/08/nginx-ru-men/08.png" class="">
-
-<h4 id="3-1-4-配置监听"><a href="#3-1-4-配置监听" class="headerlink" title="3.1.4 配置监听"></a>3.1.4 配置监听</h4><p>nginx的配置文件是conf目录下的nginx.conf，默认配置的nginx监听的端口为80，如果80端口被占用可以修改为未被占用的端口即可。</p>
-<img src="/2022/09/08/nginx-ru-men/09.png" class="">
-
-<p>当我们修改了nginx的配置文件nginx.conf 时，不需要关闭nginx后重新启动nginx，只需要执行命令 <code>nginx -s reload</code> 即可让改动生效</p>
-<h4 id="3-1-5-关闭nginx"><a href="#3-1-5-关闭nginx" class="headerlink" title="3.1.5 关闭nginx"></a>3.1.5 关闭nginx</h4><p>如果使用cmd命令窗口启动nginx， 关闭cmd窗口是不能结束nginx进程的，可使用两种方法关闭nginx</p>
-<p>(1)输入nginx命令 <code>nginx -s stop</code>(快速停止nginx) 或 <code>nginx -s quit</code>(完整有序的停止nginx)</p>
-<p>(2)使用taskkill <code>taskkill /f /t /im nginx.exe</code></p>
-<pre class="language-none"><code class="language-none">taskkill是用来终止进程的，
-/f是强制终止 .
-/t终止指定的进程和任何由此启动的子进程。
-/im示指定的进程名称 .</code></pre>
-
-<h3 id="3-2-linux下安装"><a href="#3-2-linux下安装" class="headerlink" title="3.2 linux下安装"></a>3.2 linux下安装</h3><h4 id="3-2-1-安装gcc"><a href="#3-2-1-安装gcc" class="headerlink" title="3.2.1 安装gcc"></a>3.2.1 安装gcc</h4><p>安装 nginx 需要先将官网下载的源码进行编译，编译依赖 gcc 环境，如果没有 gcc 环境，则需要安装：</p>
-<pre class="language-none"><code class="language-none">yum install gcc-c++</code></pre>
-
-<h4 id="3-2-2-PCRE-pcre-devel-安装"><a href="#3-2-2-PCRE-pcre-devel-安装" class="headerlink" title="3.2.2 PCRE pcre-devel 安装"></a>3.2.2 PCRE pcre-devel 安装</h4><p>PCRE(Perl Compatible Regular Expressions) 是一个Perl库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库，pcre-devel 是使用 pcre 开发的一个二次开发库。nginx也需要此库。命令：</p>
-<pre class="language-none"><code class="language-none">yum install -y pcre pcre-devel</code></pre>
-
-<h4 id="3-2-3-zlib-安装"><a href="#3-2-3-zlib-安装" class="headerlink" title="3.2.3 zlib 安装"></a>3.2.3 zlib 安装</h4><p>zlib 库提供了很多种压缩和解压缩的方式， nginx 使用 zlib 对 http 包的内容进行 gzip ，所以需要在 Centos 上安装 zlib 库。</p>
-<pre class="language-none"><code class="language-none">yum install -y zlib zlib-devel</code></pre>
-
-<h4 id="3-2-4-OpenSSL-安装"><a href="#3-2-4-OpenSSL-安装" class="headerlink" title="3.2.4 OpenSSL 安装"></a>3.2.4 OpenSSL 安装</h4><p>OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。<br>nginx 不仅支持 http 协议，还支持 https（即在ssl协议上传输http），所以需要在 Centos 安装 OpenSSL 库。</p>
-<pre class="language-none"><code class="language-none">yum install -y openssl openssl-devel</code></pre>
-
-<h4 id="3-2-5-下载安装包"><a href="#3-2-5-下载安装包" class="headerlink" title="3.2.5 下载安装包"></a>3.2.5 下载安装包</h4><p>手动下载.tar.gz安装包，地址：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
-<img src="/2022/09/08/nginx-ru-men/10.png" class="">
-
-<p>下载完毕上传到服务器</p>
-<h4 id="3-2-6-解压"><a href="#3-2-6-解压" class="headerlink" title="3.2.6 解压"></a>3.2.6 解压</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-1.18.0.tar.gz
-<span class="token builtin class-name">cd</span> nginx-1.18.0</code></pre>
-
-<h4 id="3-2-7-配置"><a href="#3-2-7-配置" class="headerlink" title="3.2.7 配置"></a>3.2.7 配置</h4><p>使用默认配置，在nginx根目录下执行</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash">./configure
-<span class="token function">make</span>
-<span class="token function">make</span> <span class="token function">install</span></code></pre>
-
-<p>查找安装路径： <code>whereis nginx</code></p>
-<h4 id="3-2-8-Nginx常用命令"><a href="#3-2-8-Nginx常用命令" class="headerlink" title="3.2.8 Nginx常用命令"></a>3.2.8 Nginx常用命令</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/nginx/sbin/
-./nginx  启动
-./nginx -s stop  停止
-./nginx -s quit  安全退出
-./nginx -s reload  重新加载配置文件
-<span class="token function">ps</span> aux<span class="token operator">|</span><span class="token function">grep</span> nginx  查看nginx进程</code></pre>
-
-<p>启动成功访问 服务器ip:80</p>
-<img src="/2022/09/08/nginx-ru-men/11.png" class="">
-
-<p>注意：如何连接不上，检查阿里云安全组是否开放端口，或者服务器防火墙是否开放端口！<br>相关命令：</p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 开启</span>
-<span class="token function">service</span> firewalld start
-<span class="token comment"># 重启</span>
-<span class="token function">service</span> firewalld restart
-<span class="token comment"># 关闭</span>
-<span class="token function">service</span> firewalld stop
-<span class="token comment"># 查看防火墙规则</span>
-firewall-cmd --list-all
-<span class="token comment"># 查询端口是否开放</span>
-firewall-cmd --query-port<span class="token operator">=</span><span class="token number">8080</span>/tcp
-<span class="token comment"># 开放80端口</span>
-firewall-cmd --permanent --add-port<span class="token operator">=</span><span class="token number">80</span>/tcp
-<span class="token comment"># 移除端口</span>
-firewall-cmd --permanent --remove-port<span class="token operator">=</span><span class="token number">8080</span>/tcp
-<span class="token comment">#重启防火墙(修改配置后要重启防火墙)</span>
-firewall-cmd --reload
-<span class="token comment"># 参数解释</span>
-<span class="token number">1</span>、firwall-cmd：是Linux提供的操作firewall的一个工具；
-<span class="token number">2</span>、--permanent：表示设置为持久；
-<span class="token number">3</span>、--add-port：标识添加的端口；</code></pre>
-
-<h2 id="4-Nginx配置详解"><a href="#4-Nginx配置详解" class="headerlink" title="4. Nginx配置详解"></a>4. Nginx配置详解</h2><p>文件结构：</p>
-<pre class="language-none"><code class="language-none">...              #全局配置
-
-events {         #events配置
-   ...
-}
-
-http {     #http配置
-	
-    upstream edustudy {	# 负载均衡配置，默认是轮询
-        server 127.0.0.1:8080 weight=1;	# weight是权重
-        server 127.0.0.1:8081 weight=1;
-    }
-    server {        #server代理
-        listen       9001;
-        server_name  localhost;	# 监听到之后转发到localhost
-        
-        location / {  # 9001端口下的所有请求都会被匹配到这里
-			proxy_pass http://edustudy;	# 转发至负载均衡里
-        }
-        
-        # www.edustudy.com/admin
-        location /admin {
-            
-        }
-        
-        # 当地址中包含"eduService"时，请求会转发至 http://localhost:8085
-        location ~ /eduService/ { 
-            proxy_pass http://localhost:8085;
-        }
-
-    }
-    
-    server {
-      	listen       9002;
-        server_name  localhost;
-    }
-}
-</code></pre>
+<img src="/2022/09/09/linux-bi-ji/01.png" class="">
 
 <ul>
-<li><strong>全局块</strong>：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</li>
+<li><p><strong>/bin</strong>：<br>bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p><strong>/sbin</strong>：<br>s 就是 Super User 的意思，是 Superuser Binaries (超级用户的二进制文件) 的缩写，这里存放的是系统管理员使用的系统管理程序。</p>
+</li>
+<li><p><strong>/root</strong>：<br>该目录为系统管理员，也称作超级权限者的用户主目录。</p>
+</li>
+<li><p><strong>/lib</strong>：<br>lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p><strong>/lost+found</strong>：<br>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p><strong>/etc：</strong><br>etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li><p><strong>/usr</strong>：<br> usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</p>
+</li>
+<li><p><strong>/boot：</strong><br>这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
 </ul>
 <ul>
-<li><strong>events块</strong>：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</li>
-<li><strong>http块</strong>：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</li>
-<li><strong>server块</strong>：配置虚拟主机的相关参数，一个http中可以有多个server。</li>
-<li><strong>location块</strong>：配置请求的路由，以及各种页面的处理情况。</li>
+<li><p><strong>/proc</strong>：<br>proc 是 Processes(进程) 的缩写，/proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br>这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：</p>
+<pre class="language-none"><code class="language-none">echo 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all</code></pre></li>
 </ul>
+<ul>
+<li><p><strong>/srv</strong>：<br> 该目录存放一些服务启动之后需要提取的数据。</p>
+</li>
+<li><p><strong>/sys</strong>：</p>
+<p>这是 Linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。</p>
+<p>sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。</p>
+<p>该文件系统是内核设备树的一个直观反映。</p>
+<p>当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+</li>
+<li><p><strong>/tmp</strong>：<br>tmp 是 temporary(临时) 的缩写这个目录是用来存放一些临时文件的。</p>
+</li>
+<li><p><strong>/dev ：</strong><br>dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p><strong>/media</strong>：<br>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p><strong>/mnt</strong>：<br>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 /mnt/ 上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p><strong>/opt</strong>：<br>opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p><strong>/var</strong>：<br>var 是 variable(变量) 的缩写，这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+</ul>
+<h2 id="2-vi和vim的基本介绍"><a href="#2-vi和vim的基本介绍" class="headerlink" title="2. vi和vim的基本介绍"></a>2. vi和vim的基本介绍</h2><ul>
+<li><p>Linux系统会内置vi文本编辑器</p>
+</li>
+<li><p>vim具有程序编辑的能力，可以看做是vi的增强版本，可以主动的以字体颜色辨别语法的正确性，方便程序设计。代码补完、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。</p>
+</li>
+</ul>
+<h3 id="2-1-vi和vim常用的三种模式"><a href="#2-1-vi和vim常用的三种模式" class="headerlink" title="2.1 vi和vim常用的三种模式"></a>2.1 vi和vim常用的三种模式</h3><h4 id="2-1-1-正常模式"><a href="#2-1-1-正常模式" class="headerlink" title="2.1.1 正常模式"></a>2.1.1 正常模式</h4><p>​		以<code>vim</code> 打开一个档案就直接进入一般模式了(<strong>这是默认的模式</strong>)。在这个模式中，你可以使用『上下左右』按键来移动光标，你可以使用『删除字符』或『删除整行』来处理档案内容，也可以使用『复制、粘贴』来处理你的文件数据。</p>
+<h4 id="2-1-2-插入模式"><a href="#2-1-2-插入模式" class="headerlink" title="2.1.2 插入模式"></a>2.1.2 插入模式</h4><p>​		按下<code>i，I，o，O，a，A，r，R</code>等任何一个字母之后才会进入编辑模式，一般来说按<code>i</code>即可.</p>
+<h4 id="2-1-3-命令行模式"><a href="#2-1-3-命令行模式" class="headerlink" title="2.1.3 命令行模式"></a>2.1.3 命令行模式</h4><p>​		按下<code>esc</code>键 再输入<code>:</code>，在这个模式当中，可以提供你相关指令，完成读取、存盘、替换、离开<code>vim</code> 、显示行号等的动作则是在此模式中达成的！</p>
+<h3 id="2-2-各种模式的相互切换"><a href="#2-2-各种模式的相互切换" class="headerlink" title="2.2 各种模式的相互切换"></a>2.2 各种模式的相互切换</h3><img src="/2022/09/09/linux-bi-ji/02.png" class="">
+
+<h3 id="2-3-vi和vim快捷键"><a href="#2-3-vi和vim快捷键" class="headerlink" title="2.3 vi和vim快捷键"></a>2.3 vi和vim快捷键</h3><ol>
+<li><p>拷贝当前行yy ，拷贝当前行向下的5行5yy，并粘贴（输入p)。</p>
+</li>
+<li><p>删除当前行dd,删除当前行向下的5行5dd</p>
+</li>
+<li><p>在文件中查找某个单词【 <strong>命令行下</strong>/关键字，回车查找，输入 n就是查找下一个】</p>
+</li>
+<li><p>设置文件的行号，取消文件的行号 [ <strong>命令行下</strong>: set nu和:set nonu ]</p>
+</li>
+<li><p>编辑/etc/profile 文件，<strong>在一般模式下</strong>，使用快捷键到该文档的最末行[G]和最首行[gg]</p>
+</li>
+<li><p>在一个文件中输入”hello” ,<strong>在一般模式下</strong>，然后又撤销这个动作u</p>
+</li>
+<li><p>编辑/etc/profile文件，把光标快速定位到20行，<strong>在一般模式下</strong>，输入20，再输入shift+g</p>
+</li>
+</ol>
+<img src="/2022/09/09/linux-bi-ji/03.png" class="">
+
+<p>更多常用快捷键：<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<h2 id="3-关机和重启命令"><a href="#3-关机和重启命令" class="headerlink" title="3. 关机和重启命令"></a>3. 关机和重启命令</h2><ul>
+<li><p>基本介绍</p>
+<p>shutdown -h now			立刻进行关机</p>
+<p>shutdown -h  1				1分钟后会关机</p>
+<p>shutdown -r now			现在重新启动计算机</p>
+<p>halt									关机，作用和上面一样</p>
+<p>reboot								现在重新启动计算机</p>
+<p>sync									把内存的数据同步到磁盘</p>
+</li>
+<li><p>注意细节</p>
+</li>
+</ul>
+<ol>
+<li>不管是重启系统还是关闭系统，首先要运行sync命令，把内存中的数据写到磁盘中</li>
+<li>目前的 shutdown/reboot/halt 等命令均已经在关机前进行了sync。</li>
+</ol>
+<h2 id="4-用户登录和注销"><a href="#4-用户登录和注销" class="headerlink" title="4. 用户登录和注销"></a>4. 用户登录和注销</h2><ul>
+<li>基本介绍</li>
+</ul>
+<ol>
+<li>登录时尽量少用root账号登录，因为它是管理员，最大的权限，避免操作失误。可以利用普通用户登录，登录后再用“su - 用户名” 命令来切换成系统管理员身份；</li>
+<li>在提示符下输入logout即可注销用户</li>
+</ol>
+<ul>
+<li>使用细节</li>
+</ul>
+<ol>
+<li>logout注销指令在图形运行级别无效，在运行级别3下有效</li>
+</ol>
+<h2 id="5-用户管理"><a href="#5-用户管理" class="headerlink" title="5. 用户管理"></a>5. 用户管理</h2><h3 id="5-1-添加用户"><a href="#5-1-添加用户" class="headerlink" title="5.1 添加用户"></a>5.1 添加用户</h3><p>语法：useradd    用户名</p>
+<p>细节：</p>
+<ol>
+<li>当创建用户成功后，会自动的创建和用户同名的家目录 /home/xxx</li>
+<li>也可以通过useradd -d 指定目录 新的用户名，给新创建的用户指定家目录（useradd -d home/myfile woniu）</li>
+</ol>
+<h3 id="5-2-修改密码"><a href="#5-2-修改密码" class="headerlink" title="5.2 修改密码"></a>5.2 修改密码</h3><p>语法：password    用户名</p>
+<h3 id="5-3-删除用户"><a href="#5-3-删除用户" class="headerlink" title="5.3 删除用户"></a>5.3 删除用户</h3><p>语法： userdel	用户名（保留家目录）    userdel -r 用户名（家目录一并删除）</p>
+<h3 id="5-4-查询用户信息"><a href="#5-4-查询用户信息" class="headerlink" title="5.4 查询用户信息"></a>5.4 查询用户信息</h3><p>语法：id  用户名</p>
+<h3 id="5-5-切换用户"><a href="#5-5-切换用户" class="headerlink" title="5.5 切换用户"></a>5.5 切换用户</h3><p>语法：su  - 用户名</p>
+<p>细节说明：</p>
+<ol>
+<li>从权限高的用户切换到权限低的用户，不需要输入密码，反之需要</li>
+<li>当需要返回到原来用户时，使用exit/logout指令</li>
+</ol>
+<h3 id="5-6-用户组"><a href="#5-6-用户组" class="headerlink" title="5.6 用户组"></a>5.6 用户组</h3><p>介绍：类似于角色，系统可以对有共同权限的多个用户进行统一管理</p>
+<p>新增组：groupadd  组名</p>
+<p>删除组：groupdel  组名</p>
+<p>增加用户时直接加上组：useradd -g 用户组 用户名</p>
+<p>修改用户组：usermod -g 用户组 用户名</p>
+<h2 id="6-运行级别"><a href="#6-运行级别" class="headerlink" title="6. 运行级别"></a>6. 运行级别</h2><ul>
+<li>基本介绍：</li>
+</ul>
+<p>0：关机</p>
+<p>1： 单用户【找回丢失密码】</p>
+<p>2：多用户状态没有网络服务</p>
+<p>3：多用户状态有网络服务</p>
+<p>4：系统未使用保留给用户</p>
+<p>5：图形界面</p>
+<p>6：系统重启</p>
+<p>常用运行级别是3和5，也可以指定默认运行级别（切换运行级别：init 3）</p>
+<h2 id="7-文件目录"><a href="#7-文件目录" class="headerlink" title="7. 文件目录"></a>7. 文件目录</h2><ul>
+<li><p>pwd 指令：显示当前工作目录的绝对路径</p>
+</li>
+<li><p>cd 指令：切换到指定目录（cd ..回到当前目录的上一级目录，cd ~或cd 回到当前用户的家目录）</p>
+</li>
+<li><p>mkdir 指令：创建目录（一级目录：mkdir /home/woniu   多级目录：mkdir <strong>-p</strong> /home/woniu/file）</p>
+</li>
+<li><p>rmdir 指令：删除空目录（rm <strong>-rf</strong> /home/ 强制删除）</p>
+</li>
+<li><p>cp指令：拷贝文件到指定目录</p>
+<ul>
+<li>语法：cp [选项] source dest；</li>
+<li>常用选项 -r：递归复制整个文件夹；</li>
+<li>强制覆盖不提示的方法： \cp -r /home/woniu</li>
+</ul>
+</li>
+<li><p>rm指令：移除文件或目录</p>
+<ul>
+<li>语法：rm [选项] 要删除的文件或目录</li>
+<li>常用选项： -r 递归删除整个文件夹  -f 强制删除不提示</li>
+</ul>
+</li>
+<li><p>mv指令：移动文件或目录或重命名</p>
+<ul>
+<li>语法：mv oldFile newFile(重命名)、mv file /home/xxx</li>
+</ul>
+</li>
+<li><p>cat指令：查看文件内容</p>
+<ul>
+<li>语法：cat [选项] 要查看的文件    选项： -n显示行号</li>
+</ul>
+</li>
+<li><p>more指令：基于VI编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容</p>
+<ul>
+<li>语法：more 要查看的文件</li>
+<li>操作：空格（下翻一页）、Enter（下翻一行）、 q（离开more）、Ctrl+F（下滚一屏）、Ctrl + B（返回上一层）、=（输出当前行的行号）、:f输出文件名和当前行的</li>
+</ul>
+</li>
+<li><p>less指令：用来分屏查看文件内容，它的功能与more指令类似，但是比more指令更强大，支持各种终端；less指令显示内容时。一个将整个文件加载之后显示，而是根据，对于显示大型具有较高的销较高文件具体较高的效率。</p>
+<ul>
+<li>语法：空白键（向反动解冻下）、pagedown（向下翻动一页）pageup（向上翻动一页）、/字串（向下搜寻[字典]，n:向下 N（向下））、？字串（向上搜寻）、q（离开less）</li>
+</ul>
+</li>
+<li><p>echo指令：输出内容到控制台显示</p>
+<ul>
+<li>echo “hello”</li>
+</ul>
+</li>
+<li><p>head指令：head用于显示文件的开头部分内容，默认情况下head指令显示文件的前10行内容</p>
+<ul>
+<li>语法：head -n 5 文件（查看文件前5行内容）</li>
+</ul>
+</li>
+<li><p>tail指令：用于输出文件中尾部的内容，默认情况下tail指令显示的文件的前10行</p>
+<ul>
+<li>语法：tail 文件、 tail -n 5 文件、	tail -f 实时追踪该文档的所有内容</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-搜索查找"><a href="#8-搜索查找" class="headerlink" title="8. 搜索查找"></a>8. 搜索查找</h2><ul>
+<li><p>find指令：从指定目录向下递归地遍历其各个子目录，将满足条件的文件或者目录显示在终端</p>
+<ul>
+<li>语法：find [搜索范围] [选项]   </li>
+<li>选项：<ul>
+<li>-name&lt;查询方式&gt; 按照指定的文件名查询模式查找文件</li>
+<li>-user&lt;用户名&gt;查找属于用户名所有文件</li>
+<li>-size&lt;文件大小&gt;按照指定的文件大小查找文件（+n大于、-n小于、n等于，+200M大于200M）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>locate指令：可以快速定位文件路径</p>
+<p><strong>注意：</strong>由于locate指令基于数据库进行查询，所有第一次运行前，必须使用updatedb指令创建locate数据库</p>
+</li>
+<li><p>which指令：可以查看某个指令在哪个目录下</p>
+</li>
+</ul>
+<h2 id="9-压缩和解压"><a href="#9-压缩和解压" class="headerlink" title="9. 压缩和解压"></a>9. 压缩和解压</h2><ul>
+<li><p>gzip/gunzip指令：gzip用于压缩文件/文件夹，gunzip用于解压</p>
+<ul>
+<li>语法：<ul>
+<li>gzip  文件（只能将文件压缩为*.gz文件）</li>
+<li>gunzip  文件.gz （添加-d&lt;目录&gt; 指定解压后文件的存放路径）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>tar指令：</p>
+<ul>
+<li>选项：<ul>
+<li>-c 产生.tar打包文件</li>
+<li>-v 显示详细信息</li>
+<li>-f 指定压缩后的文件名</li>
+<li>-z 打包同时压缩</li>
+<li>-x 解包.tar文件</li>
+</ul>
+</li>
+<li>打包文件常用tar -zcvf xxx.tar.gz 打包的内容</li>
+<li>解包文件常用tar -xcvf  xxx.tar.gz -C 解压到指定的目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-权限的基本介绍"><a href="#10-权限的基本介绍" class="headerlink" title="10. 权限的基本介绍"></a>10. 权限的基本介绍</h2><h3 id="10-1-rwx权限详解"><a href="#10-1-rwx权限详解" class="headerlink" title="10.1 rwx权限详解"></a>10.1 rwx权限详解</h3><ul>
+<li><p>rwx作用到文件</p>
+<ol>
+<li>r 代表可读(read):可以读取，查看</li>
+<li>w 代表可写(write):可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写的权限，才能删除该文件</li>
+<li>x 代表可执行(execute):可以被执行</li>
+</ol>
+</li>
+<li><p>rwx作用到目录</p>
+<ol>
+<li>r 代表可读(read):可以读取，ls查看目录内容</li>
+<li>w 代表可写(write):可以修改，对目录内创建+删除+重命名目录</li>
+<li>x 代表可执行(execute):可以进入该目录</li>
+</ol>
+</li>
+</ul>
+<p>ls -l中显示的内容如下：</p>
+<p>-<font color="#dd0000">rwx</font><font color="#00dd00">rw-</font><font color="#0000dd">r–</font> 1 root root 1213 Feb 2 09:39 abc</p>
+<p>0-9位说明：</p>
+<ul>
+<li>第0位确定文件类型（d, -, l, c, b）<ul>
+<li>－是普通文件</li>
+<li>l 是链接，相当于windows的快捷方式</li>
+<li>d 是目录，相当于windows的文件夹</li>
+<li>c 是字符设备文件，鼠标、键盘</li>
+<li>b 是块设备，如硬盘</li>
+</ul>
+</li>
+<li>第1-3位确定所有者（该文件的所有者）拥有该文件的权限。</li>
+<li>第4-6位确定所属组（同用户组的）拥有该文件的权限。</li>
+<li>第7-9位确定其他用户拥有该文件的权限。</li>
+</ul>
+<p>可用数字表示为：r=4, w=2, x=1 因此rwx=4+2+1=7</p>
+<p>其他说明：</p>
+<p>1						文件：硬连接数或		目录：子目录数</p>
+<p>root					用户</p>
+<p>root					组</p>
+<p>1213					文件大小(字节)，如果是文件夹，显示4096字节</p>
+<p>Feb 2 09:39		最后修改日期</p>
+<p>abc						文件名</p>
+<h3 id="10-2-修改权限-chmod"><a href="#10-2-修改权限-chmod" class="headerlink" title="10.2 修改权限 -chmod"></a>10.2 修改权限 -chmod</h3><p>通过chmod指令，可以修改文件或者目录的权限</p>
+<p>方式一：+、-、= 变更权限</p>
+<p>​	u:所有者	g:所有者	o:其他人	a:所有人(u、g、o的总和)</p>
+<ol>
+<li>chmod	u=rwx,g=rx,o=x	文件/目录名</li>
+<li>chmod    o+w    文件/目录名</li>
+<li>chmod    a-x    文件/目录名</li>
+</ol>
+<p>方式二：通过数字变更权限</p>
+<p>​	r=4, w=2, x=1		rwx=4+2+1=7</p>
+<p>​	chmod	u=rwx,g=rx,o=x	文件/目录名</p>
+<p>相当于 chmod	751	文件/目录名</p>
+<h2 id="11-定时任务调度"><a href="#11-定时任务调度" class="headerlink" title="11. 定时任务调度"></a>11. 定时任务调度</h2><h3 id="11-1-crond任务调度"><a href="#11-1-crond任务调度" class="headerlink" title="11.1 crond任务调度"></a>11.1 crond任务调度</h3><img src="/2022/09/09/linux-bi-ji/04.png" class="">
+
+<img src="/2022/09/09/linux-bi-ji/05.png" class="">
+
+<img src="/2022/09/09/linux-bi-ji/06.png" class="">
+
+<p>crond 相关指令：</p>
+<ul>
+<li>crontab -r：终止任务调度</li>
+<li>crontab -l：列出当前有哪些任务调度</li>
+<li>service crond restart  重启任务调度</li>
+</ul>
+<h3 id="11-2-at任务调度"><a href="#11-2-at任务调度" class="headerlink" title="11.2 at任务调度"></a>11.2 at任务调度</h3><h2 id="12-主机名和hosts映射"><a href="#12-主机名和hosts映射" class="headerlink" title="12. 主机名和hosts映射"></a>12. 主机名和hosts映射</h2><h3 id="12-1-设置主机名和hosts映射"><a href="#12-1-设置主机名和hosts映射" class="headerlink" title="12.1 设置主机名和hosts映射"></a>12.1 设置主机名和hosts映射</h3><img src="/2022/09/09/linux-bi-ji/07.png" class="">
+
+<h3 id="12-2-主机名解析机制分析"><a href="#12-2-主机名解析机制分析" class="headerlink" title="12.2 主机名解析机制分析"></a>12.2 主机名解析机制分析</h3><p>用户在浏览器输入<a href="http://www.baidu.com：">www.baidu.com：</a></p>
+<ol>
+<li>检查本地解析器缓存（浏览器缓存、DNS解析器缓存）</li>
+<li>检查系统中hosts文件是否配置对应的域名IP映射</li>
+<li>到域名服务DNS进行解析域</li>
+</ol>
+<p>浏览器缓存 –&gt; DNS缓存 –&gt; hosts –&gt; DNS</p>
+<h2 id="13-进程管理"><a href="#13-进程管理" class="headerlink" title="13. 进程管理"></a>13. 进程管理</h2><img src="/2022/09/09/linux-bi-ji/08.png" class="">
+
+<h3 id="终止进行kill和killall"><a href="#终止进行kill和killall" class="headerlink" title="终止进行kill和killall"></a>终止进行kill和killall</h3><ul>
+<li>基本语法：<ul>
+<li>kill [选项] 进程号（通过进程号杀死/终止进程）</li>
+<li>killall 进程名称（通过进程名称杀死进程）</li>
+</ul>
+</li>
+<li>常用选项<ul>
+<li>-9 ：表示强迫进程立即停止</li>
+</ul>
+</li>
+</ul>
+<h2 id="14-服务管理"><a href="#14-服务管理" class="headerlink" title="14. 服务管理"></a>14. 服务管理</h2><img src="/2022/09/09/linux-bi-ji/09.png" class="">
+
+<img src="/2022/09/09/linux-bi-ji/10.png" class="">
+
+<h2 id="15-RPM与YUM"><a href="#15-RPM与YUM" class="headerlink" title="15. RPM与YUM"></a>15. RPM与YUM</h2><h3 id="15-1-RPM"><a href="#15-1-RPM" class="headerlink" title="15.1 RPM"></a>15.1 RPM</h3><p>rpm用于互联网下载包的打包及安装工具。</p>
+<p>rpm包的简单查询指令：rpm -qa | grep xxx</p>
+<img src="/2022/09/09/linux-bi-ji/11.png" class="">
+
+<p>卸载rpm包：</p>
+<img src="/2022/09/09/linux-bi-ji/12.png" class="">
+
+<p>安装rpm包：</p>
+<img src="/2022/09/09/linux-bi-ji/13.png" class="">
+
+<h3 id="15-2-YUM"><a href="#15-2-YUM" class="headerlink" title="15.2 YUM"></a>15.2 YUM</h3><img src="/2022/09/09/linux-bi-ji/14.png" class="">
+
+<h2 id="16-Shell脚本"><a href="#16-Shell脚本" class="headerlink" title="16. Shell脚本"></a>16. Shell脚本</h2><h3 id="16-1-Shell的变量"><a href="#16-1-Shell的变量" class="headerlink" title="16.1 Shell的变量"></a>16.1 Shell的变量</h3><p>变量介绍：</p>
+<ol>
+<li>Linux Shell中的变量分为系统变量和用户自定义变量；</li>
+<li>系统变量：$HOME、$PWD、$USER等等</li>
+<li>显示当前shell中所有变量：set</li>
+</ol>
+<p>自定义变量：</p>
+<ol>
+<li>定义变量：变量=值（中间没有空格）</li>
+<li>撤销变量：unset 变量</li>
+<li>声明静态变量：readonly变量，注意不能unset</li>
+</ol>
+<img src="/2022/09/09/linux-bi-ji/15.png" class="">
+
+<p>定义变量规则：</p>
+<ol>
+<li>变量名称可以由字母、数字和下划线组成，但是不能以数字开头</li>
+<li>等号两侧不能有空格</li>
+<li>变量名称一般习惯为大写，这是一个规范；</li>
+</ol>
+<p>将命令的返回值赋给变量：</p>
+<ol>
+<li>A=<code>`date`</code>反引号，运行里面的命令，并把结构返回给变量A</li>
+<li>A=$(date) 等价于反引号</li>
+</ol>
+<h3 id="16-2-设置环境变量"><a href="#16-2-设置环境变量" class="headerlink" title="16.2 设置环境变量"></a>16.2 设置环境变量</h3><p>基本语法：</p>
+<ol>
+<li>export 变量名=变量值（将shell变量输出为环境变量/全局变量）</li>
+<li>source 配置文件（让修改后的配置信息立即生效）</li>
+<li>echo $变量名（查询环境变量的值）</li>
+</ol>
+<img src="/2022/09/09/linux-bi-ji/16.png" class="">
+
+<p>使用环境变量：</p>
+<img src="/2022/09/09/linux-bi-ji/17.png" class="">
+
+<h3 id="16-3-位置参数变量"><a href="#16-3-位置参数变量" class="headerlink" title="16.3 位置参数变量"></a>16.3 位置参数变量</h3><p>介绍：</p>
+<p>​	当我们执行一个shell脚本时，如果希望获取到命令行的参数信息，就可以使用到位置参数变量比如：./myshell.sh 100 200，这个就是一个执行shell的命令行，可以在myshell脚本中获取到参数信息</p>
+<p>基本语法：</p>
+<p>$n（n为数字，$0代表命令本身，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如${10}）</p>
+<p>$*（这个变量代表命令行中所有的参数，把所有的参数看成一个整体）</p>
+<p>$@（这个变量也代表命令行中所有参数，把每个参数区分对待）</p>
+<p>$#（这个变量代表命令行中所有参数的个数）</p>
+<img src="/2022/09/09/linux-bi-ji/18.png" class="">
+
+<img src="/2022/09/09/linux-bi-ji/19.png" class="">
+
+<h3 id="16-4-Shell基本语法"><a href="#16-4-Shell基本语法" class="headerlink" title="16.4 Shell基本语法"></a>16.4 Shell基本语法</h3><p><a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
 
                 
             </div>
@@ -614,7 +848,7 @@ http {     #http配置
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://fyi-z.github.io/2022/09/08/nginx-ru-men/">https://fyi-z.github.io/2022/09/08/nginx-ru-men/</a>
+                    <a href="https://fyi-z.github.io/2022/09/09/linux-bi-ji/">https://fyi-z.github.io/2022/09/09/linux-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -652,8 +886,8 @@ http {     #http配置
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Nginx/">
-                                    <span class="chip bg-color">Nginx</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -1001,9 +1235,10 @@ http {     #http配置
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/09/09/linux-bi-ji/">
                     <div class="card-image">
@@ -1021,9 +1256,9 @@ http {     #http配置
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1036,6 +1271,7 @@ http {     #http配置
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1054,13 +1290,13 @@ http {     #http配置
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/05/redis-ji-chu-zhi-shi/">
+                <a href="/2022/09/08/nginx-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Redis基础知识">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Nginx入门">
                         
-                        <span class="card-title">Redis基础知识</span>
+                        <span class="card-title">Nginx入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1071,7 +1307,7 @@ http {     #http配置
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-08
                             </span>
                         <span class="publish-author">
                             
@@ -1088,8 +1324,8 @@ http {     #http配置
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/NoSQL/">
-                        <span class="chip bg-color">NoSQL</span>
+                    <a href="/tags/Nginx/">
+                        <span class="chip bg-color">Nginx</span>
                     </a>
                     
                 </div>
