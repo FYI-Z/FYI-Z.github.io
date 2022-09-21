@@ -5,14 +5,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Docker学习笔记, 奔跑的蜗牛">
-    <meta name="description" content="1. Docker基本组成
+    <meta name="description" content="基础篇1. Docker基本组成
 镜像(image)
 
 Docker镜像是一个只读的模板，镜像可以用来创建Docker容器，一个镜像可以创建多个容器。
 
 容器(container)
 
-Docker容器独立运行一个或者一组应用，应用程序或服务运行在">
+Docker容器独立运行一个或者一组应用，应用程序或服务">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -390,14 +390,14 @@ Docker容器独立运行一个或者一组应用，应用程序或服务运行�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    18 分
                 </div>
                 
 
@@ -420,7 +420,7 @@ Docker容器独立运行一个或者一组应用，应用程序或服务运行�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-Docker基本组成"><a href="#1-Docker基本组成" class="headerlink" title="1. Docker基本组成"></a>1. Docker基本组成</h2><ul>
+                <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h3 id="1-Docker基本组成"><a href="#1-Docker基本组成" class="headerlink" title="1. Docker基本组成"></a>1. Docker基本组成</h3><ul>
 <li>镜像(image)</li>
 </ul>
 <p>Docker镜像是一个只读的模板，镜像可以用来创建Docker容器，一个镜像可以创建多个容器。</p>
@@ -434,38 +434,38 @@ Docker容器独立运行一个或者一组应用，应用程序或服务运行�
 <p>仓库是集中存放镜像文件的场所。类似于Maven仓库存放各种jar包的地方。</p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/01.jpg" class="">
 
-<h2 id="2-CentOS-7安装Docker"><a href="#2-CentOS-7安装Docker" class="headerlink" title="2. CentOS 7安装Docker"></a>2. CentOS 7安装Docker</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
-<h3 id="2-1-卸载旧版本"><a href="#2-1-卸载旧版本" class="headerlink" title="2.1 卸载旧版本"></a>2.1 卸载旧版本</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/02.png" class="">
+<h3 id="2-CentOS-7安装Docker"><a href="#2-CentOS-7安装Docker" class="headerlink" title="2. CentOS 7安装Docker"></a>2. CentOS 7安装Docker</h3><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS | Docker Documentation</a></p>
+<h4 id="2-1-卸载旧版本"><a href="#2-1-卸载旧版本" class="headerlink" title="2.1 卸载旧版本"></a>2.1 卸载旧版本</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/02.png" class="">
 
-<h3 id="2-2-yum安装gcc相关"><a href="#2-2-yum安装gcc相关" class="headerlink" title="2.2 yum安装gcc相关"></a>2.2 yum安装gcc相关</h3><pre class="language-none"><code class="language-none">yum -y install gcc
+<h4 id="2-2-yum安装gcc相关"><a href="#2-2-yum安装gcc相关" class="headerlink" title="2.2 yum安装gcc相关"></a>2.2 yum安装gcc相关</h4><pre class="language-none"><code class="language-none">yum -y install gcc
 yum -y install gcc-c++</code></pre>
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/03.png" class="">
 
-<h3 id="2-3-安装官网要求的包"><a href="#2-3-安装官网要求的包" class="headerlink" title="2.3 安装官网要求的包"></a>2.3 安装官网要求的包</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/04.png" class="">
+<h4 id="2-3-安装官网要求的包"><a href="#2-3-安装官网要求的包" class="headerlink" title="2.3 安装官网要求的包"></a>2.3 安装官网要求的包</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/04.png" class="">
 
 <p><code>yum install -y yum-utils</code></p>
-<h3 id="2-4-设置stable镜像仓库"><a href="#2-4-设置stable镜像仓库" class="headerlink" title="2.4 设置stable镜像仓库"></a>2.4 设置stable镜像仓库</h3><p>使用官网方式下载速度慢，经常出错，改用阿里云镜像</p>
+<h4 id="2-4-设置stable镜像仓库"><a href="#2-4-设置stable镜像仓库" class="headerlink" title="2.4 设置stable镜像仓库"></a>2.4 设置stable镜像仓库</h4><p>使用官网方式下载速度慢，经常出错，改用阿里云镜像</p>
 <p><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></p>
-<h3 id="2-5-更新软件包索引"><a href="#2-5-更新软件包索引" class="headerlink" title="2.5 更新软件包索引"></a>2.5 更新软件包索引</h3><p><code>yum makecache fast</code></p>
-<h3 id="2-6-安装Docker引擎"><a href="#2-6-安装Docker引擎" class="headerlink" title="2.6 安装Docker引擎"></a>2.6 安装Docker引擎</h3><p><code>yum install docker-ce docker-ce-cli containerd.io</code></p>
+<h4 id="2-5-更新软件包索引"><a href="#2-5-更新软件包索引" class="headerlink" title="2.5 更新软件包索引"></a>2.5 更新软件包索引</h4><p><code>yum makecache fast</code></p>
+<h4 id="2-6-安装Docker引擎"><a href="#2-6-安装Docker引擎" class="headerlink" title="2.6 安装Docker引擎"></a>2.6 安装Docker引擎</h4><p><code>yum install docker-ce docker-ce-cli containerd.io</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/05.png" class="">
 
-<h3 id="2-7-启动Docker"><a href="#2-7-启动Docker" class="headerlink" title="2.7 启动Docker"></a>2.7 启动Docker</h3><p><code>systemctl start docker</code></p>
-<h3 id="2-8-测试"><a href="#2-8-测试" class="headerlink" title="2.8 测试"></a>2.8 测试</h3><p><code>docker version</code></p>
+<h4 id="2-7-启动Docker"><a href="#2-7-启动Docker" class="headerlink" title="2.7 启动Docker"></a>2.7 启动Docker</h4><p><code>systemctl start docker</code></p>
+<h4 id="2-8-测试"><a href="#2-8-测试" class="headerlink" title="2.8 测试"></a>2.8 测试</h4><p><code>docker version</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/06.png" class="">
 
 <p><code>docker run hello-world</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/07.png" class="">
 
-<h2 id="3-卸载Docker"><a href="#3-卸载Docker" class="headerlink" title="3. 卸载Docker"></a>3. 卸载Docker</h2><img src="/2022/09/19/docker-xue-xi-bi-ji/08.png" class="">
+<h3 id="3-卸载Docker"><a href="#3-卸载Docker" class="headerlink" title="3. 卸载Docker"></a>3. 卸载Docker</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/08.png" class="">
 
 <pre class="language-none"><code class="language-none">systemctl stop docker
 yum remove docker-ce docker-ce-cli containerd.io docker-compose-plugin
 rm -rf /var/lib/docker
 rm -rf /var/lib/containerd</code></pre>
 
-<h2 id="4-阿里云镜像加速（个人版）"><a href="#4-阿里云镜像加速（个人版）" class="headerlink" title="4. 阿里云镜像加速（个人版）"></a>4. 阿里云镜像加速（个人版）</h2><img src="/2022/09/19/docker-xue-xi-bi-ji/09.png" class="">
+<h3 id="4-阿里云镜像加速（个人版）"><a href="#4-阿里云镜像加速（个人版）" class="headerlink" title="4. 阿里云镜像加速（个人版）"></a>4. 阿里云镜像加速（个人版）</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/09.png" class="">
 
 <ul>
 <li>直接粘贴</li>
@@ -485,7 +485,7 @@ EOF</code></pre>
 <pre class="language-none"><code class="language-none">systemctl daemon-reload
 systemctl restart docker</code></pre>
 
-<h2 id="5-run-hello-world简单分析"><a href="#5-run-hello-world简单分析" class="headerlink" title="5. run hello-world简单分析"></a>5. run hello-world简单分析</h2><ul>
+<h3 id="5-run-hello-world简单分析"><a href="#5-run-hello-world简单分析" class="headerlink" title="5. run hello-world简单分析"></a>5. run hello-world简单分析</h3><ul>
 <li>docker run hello-world</li>
 </ul>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/12.png" class="">
@@ -496,7 +496,7 @@ systemctl restart docker</code></pre>
 </ul>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/11.jpg" class="">
 
-<h2 id="6-为什么Docker会比VM虚拟机快"><a href="#6-为什么Docker会比VM虚拟机快" class="headerlink" title="6. 为什么Docker会比VM虚拟机快"></a>6. 为什么Docker会比VM虚拟机快</h2><p><strong>(1)docker有着比虚拟机更少的抽象层</strong></p>
+<h3 id="6-为什么Docker会比VM虚拟机快"><a href="#6-为什么Docker会比VM虚拟机快" class="headerlink" title="6. 为什么Docker会比VM虚拟机快"></a>6. 为什么Docker会比VM虚拟机快</h3><p><strong>(1)docker有着比虚拟机更少的抽象层</strong></p>
 <p>​		由于docker不需要Hypervisor(虚拟机)实现硬件资源虚拟化,运行在docker容器上的程序直接使用的都是实际物理机的硬件资源。因此在CPU、内存利用率上docker将会在效率上有明显优势。</p>
 <p><strong>(2)docker利用的是宿主机的内核,而不需要加载操作系统OS内核</strong></p>
 <p>​		当新建一个容器时,docker不需要和虚拟机一样重新加载一个操作系统内核。进而避免引寻、加载操作系统内核返回等比较费时费资源的过程,当新建一个虚拟机时,虚拟机软件需要加载OS,返回新建过程是分钟级别的。而docker由于直接利用宿主机的操作系统,则省略了返回过程,因此新建一个docker容器只需要几秒钟。</p>
@@ -504,7 +504,7 @@ systemctl restart docker</code></pre>
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/14.png" class="">
 
-<h2 id="7-Docker常用命令"><a href="#7-Docker常用命令" class="headerlink" title="7. Docker常用命令"></a>7. Docker常用命令</h2><h3 id="7-1-帮助启动类命令"><a href="#7-1-帮助启动类命令" class="headerlink" title="7.1 帮助启动类命令"></a>7.1 帮助启动类命令</h3><ul>
+<h3 id="7-Docker常用命令"><a href="#7-Docker常用命令" class="headerlink" title="7. Docker常用命令"></a>7. Docker常用命令</h3><h4 id="7-1-帮助启动类命令"><a href="#7-1-帮助启动类命令" class="headerlink" title="7.1 帮助启动类命令"></a>7.1 帮助启动类命令</h4><ul>
 <li><p>启动docker： systemctl start docker</p>
 </li>
 <li><p>停止docker： systemctl stop docker</p>
@@ -522,7 +522,7 @@ systemctl restart docker</code></pre>
 <li><p>查看docker命令帮助文档： docker 具体命令 –help</p>
 </li>
 </ul>
-<h3 id="7-2-镜像命令"><a href="#7-2-镜像命令" class="headerlink" title="7.2 镜像命令"></a>7.2 镜像命令</h3><p>（1）列出本地主机上的镜像：docker images [OPTIONS]</p>
+<h4 id="7-2-镜像命令"><a href="#7-2-镜像命令" class="headerlink" title="7.2 镜像命令"></a>7.2 镜像命令</h4><p>（1）列出本地主机上的镜像：docker images [OPTIONS]</p>
 <p>OPTIONS说明：</p>
 <ul>
 <li>-a：列出本地所有的镜像（含历史映像层）</li>
@@ -556,7 +556,7 @@ SIZE：镜像大小
 <p>（5）删除单个镜像：docker rmi -f 镜像ID</p>
 <p>（6）删除多个镜像：docker rmi -f 镜像名1:TAG 镜像名2:TAG</p>
 <p>（7）删除全部镜像：docker rmi -f $(docker image -qa)</p>
-<h3 id="7-3-容器命令"><a href="#7-3-容器命令" class="headerlink" title="7.3 容器命令"></a>7.3 容器命令</h3><p>（1）新建+启动容器：docker run [OPTIONS] IMAGE [COMMAND] [ARG…]</p>
+<h4 id="7-3-容器命令"><a href="#7-3-容器命令" class="headerlink" title="7.3 容器命令"></a>7.3 容器命令</h4><p>（1）新建+启动容器：docker run [OPTIONS] IMAGE [COMMAND] [ARG…]</p>
 <p>OPTIONS说明：</p>
 <ul>
 <li><p>–name=”容器新名字”：为容器指定一个名称</p>
@@ -611,7 +611,7 @@ SIZE：镜像大小
 <li>attach直接进入容器启动命令的终端，不会启动新的进程 用exit退出，会导致容器的停止。</li>
 <li>exec 是在容器中打开新的终端，并且可以启动新的进程 用exit退出，不会导致容器的停止。</li>
 </ol>
-<h2 id="8-Docker镜像commit操作案例"><a href="#8-Docker镜像commit操作案例" class="headerlink" title="8. Docker镜像commit操作案例"></a>8. Docker镜像commit操作案例</h2><ul>
+<h3 id="8-Docker镜像commit操作案例"><a href="#8-Docker镜像commit操作案例" class="headerlink" title="8. Docker镜像commit操作案例"></a>8. Docker镜像commit操作案例</h3><ul>
 <li>docker commit 提交容器副本使之成为一个新的镜像</li>
 </ul>
 <p>命令：docker commit -m=”提交的描述信息” -a=”作者” 容器ID 要创建的目标镜像名:[标签名]</p>
@@ -650,75 +650,75 @@ SIZE：镜像大小
 <p>新镜像是从 base 镜像一层一层叠加生成的。每安装一个软件，就在现有镜像的基础上增加一层</p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/27.jpg" class="">
 
-<h2 id="9-本地镜像发布到阿里云"><a href="#9-本地镜像发布到阿里云" class="headerlink" title="9. 本地镜像发布到阿里云"></a>9. 本地镜像发布到阿里云</h2><img src="/2022/09/19/docker-xue-xi-bi-ji/28.jpg" class="">
+<h3 id="9-本地镜像发布到阿里云"><a href="#9-本地镜像发布到阿里云" class="headerlink" title="9. 本地镜像发布到阿里云"></a>9. 本地镜像发布到阿里云</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/28.jpg" class="">
 
-<h3 id="9-1-本地镜像素材原型"><a href="#9-1-本地镜像素材原型" class="headerlink" title="9.1 本地镜像素材原型"></a>9.1 本地镜像素材原型</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/29.png" class="">
+<h4 id="9-1-本地镜像素材原型"><a href="#9-1-本地镜像素材原型" class="headerlink" title="9.1 本地镜像素材原型"></a>9.1 本地镜像素材原型</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/29.png" class="">
 
-<h3 id="9-2-选择控制台，进入容器镜像服务"><a href="#9-2-选择控制台，进入容器镜像服务" class="headerlink" title="9.2 选择控制台，进入容器镜像服务"></a>9.2 选择控制台，进入容器镜像服务</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/30.png" class="">
+<h4 id="9-2-选择控制台，进入容器镜像服务"><a href="#9-2-选择控制台，进入容器镜像服务" class="headerlink" title="9.2 选择控制台，进入容器镜像服务"></a>9.2 选择控制台，进入容器镜像服务</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/30.png" class="">
 
-<h3 id="9-3-选择个人实例"><a href="#9-3-选择个人实例" class="headerlink" title="9.3 选择个人实例"></a>9.3 选择个人实例</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/31.png" class="">
+<h4 id="9-3-选择个人实例"><a href="#9-3-选择个人实例" class="headerlink" title="9.3 选择个人实例"></a>9.3 选择个人实例</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/31.png" class="">
 
-<h3 id="9-4-创建命名空间"><a href="#9-4-创建命名空间" class="headerlink" title="9.4 创建命名空间"></a>9.4 创建命名空间</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/32.png" class="">
+<h4 id="9-4-创建命名空间"><a href="#9-4-创建命名空间" class="headerlink" title="9.4 创建命名空间"></a>9.4 创建命名空间</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/32.png" class="">
 
-<h3 id="9-5-创建镜像仓库"><a href="#9-5-创建镜像仓库" class="headerlink" title="9.5 创建镜像仓库"></a>9.5 创建镜像仓库</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/33.png" class="">
+<h4 id="9-5-创建镜像仓库"><a href="#9-5-创建镜像仓库" class="headerlink" title="9.5 创建镜像仓库"></a>9.5 创建镜像仓库</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/33.png" class="">
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/34.png" class="">
 
-<h3 id="9-6-进入仓库管理界面"><a href="#9-6-进入仓库管理界面" class="headerlink" title="9.6 进入仓库管理界面"></a>9.6 进入仓库管理界面</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/35.png" class="">
+<h4 id="9-6-进入仓库管理界面"><a href="#9-6-进入仓库管理界面" class="headerlink" title="9.6 进入仓库管理界面"></a>9.6 进入仓库管理界面</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/35.png" class="">
 
-<h3 id="9-7-将镜像推送到阿里云仓库"><a href="#9-7-将镜像推送到阿里云仓库" class="headerlink" title="9.7 将镜像推送到阿里云仓库"></a>9.7 将镜像推送到阿里云仓库</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/36.png" class="">
+<h4 id="9-7-将镜像推送到阿里云仓库"><a href="#9-7-将镜像推送到阿里云仓库" class="headerlink" title="9.7 将镜像推送到阿里云仓库"></a>9.7 将镜像推送到阿里云仓库</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/36.png" class="">
 
-<h3 id="9-8-将阿里云上的镜像下载到本地"><a href="#9-8-将阿里云上的镜像下载到本地" class="headerlink" title="9.8 将阿里云上的镜像下载到本地"></a>9.8 将阿里云上的镜像下载到本地</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/38.png" class="">
+<h4 id="9-8-将阿里云上的镜像下载到本地"><a href="#9-8-将阿里云上的镜像下载到本地" class="headerlink" title="9.8 将阿里云上的镜像下载到本地"></a>9.8 将阿里云上的镜像下载到本地</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/38.png" class="">
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/37.png" class="">
 
-<h2 id="10-本地镜像发布到私有库"><a href="#10-本地镜像发布到私有库" class="headerlink" title="10. 本地镜像发布到私有库"></a>10. 本地镜像发布到私有库</h2><h3 id="10-1-下载镜像Docker-Registry"><a href="#10-1-下载镜像Docker-Registry" class="headerlink" title="10.1 下载镜像Docker Registry"></a>10.1 下载镜像Docker Registry</h3><p><code>docker pull registry</code></p>
+<h3 id="10-本地镜像发布到私有库"><a href="#10-本地镜像发布到私有库" class="headerlink" title="10. 本地镜像发布到私有库"></a>10. 本地镜像发布到私有库</h3><h4 id="10-1-下载镜像Docker-Registry"><a href="#10-1-下载镜像Docker-Registry" class="headerlink" title="10.1 下载镜像Docker Registry"></a>10.1 下载镜像Docker Registry</h4><p><code>docker pull registry</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/39.jpg" class="">
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/40.jpg" class="">
 
-<h3 id="10-2-运行私有库Registry，相当于本地有个私有Docker-hub"><a href="#10-2-运行私有库Registry，相当于本地有个私有Docker-hub" class="headerlink" title="10.2 运行私有库Registry，相当于本地有个私有Docker hub"></a>10.2 运行私有库Registry，相当于本地有个私有Docker hub</h3><p><code>docker run -d -p 5000:5000 -v /zzyyuse/myregistry/:/tmp/registry --privileged=true registry</code></p>
+<h4 id="10-2-运行私有库Registry，相当于本地有个私有Docker-hub"><a href="#10-2-运行私有库Registry，相当于本地有个私有Docker-hub" class="headerlink" title="10.2 运行私有库Registry，相当于本地有个私有Docker hub"></a>10.2 运行私有库Registry，相当于本地有个私有Docker hub</h4><p><code>docker run -d -p 5000:5000 -v /zzyyuse/myregistry/:/tmp/registry --privileged=true registry</code></p>
 <p>默认情况，仓库被创建在容器的/var/lib/registry目录下，建议自行用容器卷映射，方便于宿主机联调</p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/41.jpg" class="">
 
-<h3 id="10-3-案例演示创建一个新镜像，ubuntu安装ifconfig命令"><a href="#10-3-案例演示创建一个新镜像，ubuntu安装ifconfig命令" class="headerlink" title="10.3 案例演示创建一个新镜像，ubuntu安装ifconfig命令"></a>10.3 案例演示创建一个新镜像，ubuntu安装ifconfig命令</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/42.jpg" class="">
+<h4 id="10-3-案例演示创建一个新镜像，ubuntu安装ifconfig命令"><a href="#10-3-案例演示创建一个新镜像，ubuntu安装ifconfig命令" class="headerlink" title="10.3 案例演示创建一个新镜像，ubuntu安装ifconfig命令"></a>10.3 案例演示创建一个新镜像，ubuntu安装ifconfig命令</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/42.jpg" class="">
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/43.jpg" class="">
 
 <img src="/2022/09/19/docker-xue-xi-bi-ji/44.jpg" class="">
 
-<h3 id="10-4-提交新镜像"><a href="#10-4-提交新镜像" class="headerlink" title="10.4 提交新镜像"></a>10.4 提交新镜像</h3><p><code>docker commit -m="提交的描述信息" -a="作者" 容器ID 要创建的目标镜像名:[标签名]</code></p>
+<h4 id="10-4-提交新镜像"><a href="#10-4-提交新镜像" class="headerlink" title="10.4 提交新镜像"></a>10.4 提交新镜像</h4><p><code>docker commit -m="提交的描述信息" -a="作者" 容器ID 要创建的目标镜像名:[标签名]</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/45.jpg" class="">
 
-<h3 id="10-5-curl验证私服库上有什么镜像"><a href="#10-5-curl验证私服库上有什么镜像" class="headerlink" title="10.5 curl验证私服库上有什么镜像"></a>10.5 curl验证私服库上有什么镜像</h3><p><code>curl -XGET http://192.168.111.162:5000/v2/_catalog</code></p>
+<h4 id="10-5-curl验证私服库上有什么镜像"><a href="#10-5-curl验证私服库上有什么镜像" class="headerlink" title="10.5 curl验证私服库上有什么镜像"></a>10.5 curl验证私服库上有什么镜像</h4><p><code>curl -XGET http://192.168.111.162:5000/v2/_catalog</code></p>
 <p>可以看到，目前私服库没有任何镜像上传过</p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/46.jpg" class="">
 
-<h3 id="10-6-将新镜像的Tag修改成符合规定的Tag"><a href="#10-6-将新镜像的Tag修改成符合规定的Tag" class="headerlink" title="10.6 将新镜像的Tag修改成符合规定的Tag"></a>10.6 将新镜像的Tag修改成符合规定的Tag</h3><p><code>docker tag zzyyubuntu:1.2 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
+<h4 id="10-6-将新镜像的Tag修改成符合规定的Tag"><a href="#10-6-将新镜像的Tag修改成符合规定的Tag" class="headerlink" title="10.6 将新镜像的Tag修改成符合规定的Tag"></a>10.6 将新镜像的Tag修改成符合规定的Tag</h4><p><code>docker tag zzyyubuntu:1.2 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/47.jpg" class="">
 
-<h3 id="10-7-修改配置文件使之支持http"><a href="#10-7-修改配置文件使之支持http" class="headerlink" title="10.7 修改配置文件使之支持http"></a>10.7 修改配置文件使之支持http</h3><img src="/2022/09/19/docker-xue-xi-bi-ji/48.jpg" class="">
+<h4 id="10-7-修改配置文件使之支持http"><a href="#10-7-修改配置文件使之支持http" class="headerlink" title="10.7 修改配置文件使之支持http"></a>10.7 修改配置文件使之支持http</h4><img src="/2022/09/19/docker-xue-xi-bi-ji/48.jpg" class="">
 
 <p>registry-mirrors 配置的是国内阿里提供的镜像加速地址，不用加速的话访问官网的会很慢。</p>
 <p><strong>2个配置中间有个逗号 ‘,’ 别漏了</strong>，这个配置是json格式的。</p>
 <p>上述理由：docker默认不允许http方式推送镜像，通过配置选项来取消这个限制。====&gt; 修改完后如果不生效，建议重启docker</p>
-<h3 id="10-8-push推送到私服库"><a href="#10-8-push推送到私服库" class="headerlink" title="10.8 push推送到私服库"></a>10.8 push推送到私服库</h3><p><code>docker push 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
+<h4 id="10-8-push推送到私服库"><a href="#10-8-push推送到私服库" class="headerlink" title="10.8 push推送到私服库"></a>10.8 push推送到私服库</h4><p><code>docker push 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/49.jpg" class="">
 
-<h3 id="10-9-curl再次验证私服库上有什么镜像"><a href="#10-9-curl再次验证私服库上有什么镜像" class="headerlink" title="10.9 curl再次验证私服库上有什么镜像"></a>10.9 curl再次验证私服库上有什么镜像</h3><p><code>curl -XGET http://192.168.111.162:5000/v2/_catalog</code></p>
+<h4 id="10-9-curl再次验证私服库上有什么镜像"><a href="#10-9-curl再次验证私服库上有什么镜像" class="headerlink" title="10.9 curl再次验证私服库上有什么镜像"></a>10.9 curl再次验证私服库上有什么镜像</h4><p><code>curl -XGET http://192.168.111.162:5000/v2/_catalog</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/50.jpg" class="">
 
-<h3 id="10-10-pull到本地并运行"><a href="#10-10-pull到本地并运行" class="headerlink" title="10.10 pull到本地并运行"></a>10.10 pull到本地并运行</h3><p><code>docker pull 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
+<h4 id="10-10-pull到本地并运行"><a href="#10-10-pull到本地并运行" class="headerlink" title="10.10 pull到本地并运行"></a>10.10 pull到本地并运行</h4><p><code>docker pull 192.168.111.162:5000/zzyyubuntu:1.2</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/51.jpg" class="">
 
 <p><code>docker run -it 镜像ID /bin/bash</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/52.jpg" class="">
 
-<h2 id="11-Docker容器数据卷"><a href="#11-Docker容器数据卷" class="headerlink" title="11. Docker容器数据卷"></a>11. Docker容器数据卷</h2><h3 id="11-1-why"><a href="#11-1-why" class="headerlink" title="11.1 why"></a>11.1 why</h3><p>Docker挂载主机目录访问如果出现cannot open directory .: Permission denied</p>
+<h3 id="11-Docker容器数据卷"><a href="#11-Docker容器数据卷" class="headerlink" title="11. Docker容器数据卷"></a>11. Docker容器数据卷</h3><h4 id="11-1-why"><a href="#11-1-why" class="headerlink" title="11.1 why"></a>11.1 why</h4><p>Docker挂载主机目录访问如果出现cannot open directory .: Permission denied</p>
 <p>解决办法：在挂载目录后多加一个–privileged=true参数即可</p>
 <p>如果是CentOS7安全模块会比之前系统版本加强，不安全的会先禁止，所以目录挂载的情况被默认为不安全的行为，在SELinux里面挂载目录被禁止掉了额，如果要开启，我们一般使用–privileged=true命令，扩大容器的权限解决挂载目录没有权限的问题，也即</p>
 <p>使用该参数，container内的root拥有真正的root权限，否则，container内的root只是外部的一个普通用户权限。</p>
-<h3 id="11-2-是什么"><a href="#11-2-是什么" class="headerlink" title="11.2 是什么"></a>11.2 是什么</h3><p>卷就是目录或文件，存在于一个或多个容器中，由docker挂载到容器，但不属于联合文件系统，因此能够绕过Union File System提供一些用于持续存储或共享数据的特性：</p>
+<h4 id="11-2-是什么"><a href="#11-2-是什么" class="headerlink" title="11.2 是什么"></a>11.2 是什么</h4><p>卷就是目录或文件，存在于一个或多个容器中，由docker挂载到容器，但不属于联合文件系统，因此能够绕过Union File System提供一些用于持续存储或共享数据的特性：</p>
 <p>卷的设计目的就是<strong>数据的持久化</strong>，完全独立于容器的生存周期，因此Docker不会在容器删除时删除其挂载的数据卷。</p>
 <ul>
 <li><p>有点类似我们Redis里面的rdb和aof文件</p>
@@ -729,7 +729,7 @@ SIZE：镜像大小
 <p><code>docker run -it --privileged=true -v /宿主机绝对路径目录:/容器内目录   镜像名</code></p>
 </li>
 </ul>
-<h3 id="11-3-能干嘛"><a href="#11-3-能干嘛" class="headerlink" title="11.3 能干嘛"></a>11.3 能干嘛</h3><ul>
+<h4 id="11-3-能干嘛"><a href="#11-3-能干嘛" class="headerlink" title="11.3 能干嘛"></a>11.3 能干嘛</h4><ul>
 <li>将运用与运行的环境打包镜像，run后形成容器实例运行 ，但是我们对数据的要求希望是<strong>持久化的</strong></li>
 </ul>
 <p>Docker容器产生的数据，如果不备份，那么当容器实例删除后，容器内的数据自然也就没有了。为了能保存数据在docker中我们使用卷。</p>
@@ -744,7 +744,7 @@ SIZE：镜像大小
 <li><p>数据卷的生命周期一直持续到没有容器使用它为止</p>
 </li>
 </ol>
-<h3 id="11-4-数据卷案例"><a href="#11-4-数据卷案例" class="headerlink" title="11.4 数据卷案例"></a>11.4 数据卷案例</h3><ul>
+<h4 id="11-4-数据卷案例"><a href="#11-4-数据卷案例" class="headerlink" title="11.4 数据卷案例"></a>11.4 数据卷案例</h4><ul>
 <li>宿主vs容器之间映射添加容器卷</li>
 </ul>
 <p>命令：<code>docker run -it -v /宿主机目录:/容器内目录 ubuntu /bin/bash</code></p>
@@ -793,6 +793,276 @@ SIZE：镜像大小
 <p>（2）容器2继承容器1的卷规则</p>
 <p><code>docker run -it --privileged=true --volumes-from 父类 --name u2 ubuntu</code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/61.jpg" class="">
+
+<h3 id="12-Docker安装常用软件"><a href="#12-Docker安装常用软件" class="headerlink" title="12. Docker安装常用软件"></a>12. Docker安装常用软件</h3><p>总体步骤：搜索镜像、拉取镜像、查看镜像、启动镜像、停止容器、移除容器</p>
+<h4 id="12-1-安装tomcat"><a href="#12-1-安装tomcat" class="headerlink" title="12.1 安装tomcat"></a>12.1 安装tomcat</h4><p>（1）docker hub上面查找tomcat镜像</p>
+<p><code>docker search tomcat</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/62.jpg" class="">
+
+<p>（2）从docker hub上拉取tomcat镜像到本地</p>
+<p><code>docker pull tomcat</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/63.jpg" class="">
+
+<p>（3）查看是否有拉取到的tomcat</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/64.jpg" class="">
+
+<p>（4）使用镜像创建容器实例（运行镜像）</p>
+<ul>
+<li><p>docker run -it -p 8080:8080 tomcat</p>
+</li>
+<li><p>-p 小写，主机端口:docker容器端口</p>
+</li>
+<li><p>-P 大写，随机分配端口</p>
+</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/65.jpg" class="">
+
+<ul>
+<li><p>-i:交互</p>
+</li>
+<li><p>-t:终端</p>
+</li>
+<li><p>-d:后台</p>
+</li>
+</ul>
+<p>（5）访问猫首页</p>
+<p>问题：</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/66.jpg" class="">
+
+<p>解决：</p>
+<ul>
+<li>可能没有映射端口或者没有关闭防火墙</li>
+<li>把webapps.dist目录换成webapps</li>
+<li>先成功启动tomcat</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/67.jpg" class="">
+
+<ul>
+<li>查看webapps文件夹为空</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/68.jpg" class="">
+
+<p>（6）免修改版说明</p>
+<ul>
+<li><p>docker pull billygoo/tomcat8-jdk8</p>
+</li>
+<li><p>docker run -d -p 8080:8080 –name mytomcat8 billygoo/tomcat8-jdk8</p>
+</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/69.jpg" class="">
+
+<h4 id="12-2-安装mysql"><a href="#12-2-安装mysql" class="headerlink" title="12.2 安装mysql"></a>12.2 安装mysql</h4><ul>
+<li>新建mysql容器实例</li>
+</ul>
+<pre class="language-none"><code class="language-none">docker run -d -p 3306:3306 --privileged=true -v /zzyyuse/mysql/log:/var/log/mysql -v /zzyyuse/mysql/data:/var/lib/mysql -v /zzyyuse/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456  --name mysql mysql:5.7</code></pre>
+
+<p>挂载容器数据卷，防止删容器数据也丢失。</p>
+<ul>
+<li>新建my.cnf，通过容器卷同步给mysql容器实例</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/70.png" class="">
+
+<ul>
+<li>重新启动mysql容器实例再重新进入并查看字符编码</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/71.png" class="">
+
+<ul>
+<li>新建库新建表插入中文测试</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/72.png" class="">
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/73.png" class="">
+
+<ul>
+<li>强制删除容器后，再次运行容器，数据依然存在</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/74.png" class="">
+
+<h4 id="12-3-安装redis"><a href="#12-3-安装redis" class="headerlink" title="12.3 安装redis"></a>12.3 安装redis</h4><ul>
+<li>从docker hub上(阿里云加速器)拉取redis镜像到本地标签为6.0.8，创建容器</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/75.jpg" class="">
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/76.jpg" class="">
+
+<ul>
+<li><strong>命令提醒：容器卷记得加入</strong>–privileged=true</li>
+</ul>
+<p>Docker挂载主机目录Docker访问出现cannot open directory .: Permission denied</p>
+<p>解决办法：在挂载目录后多加一个–privileged=true参数即可</p>
+<ul>
+<li>在CentOS宿主机下新建目录/app/redis</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/77.jpg" class="">
+
+<ul>
+<li>将一个redis.conf文件模板拷贝进/app/redis目录下</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/78.jpg" class="">
+
+<ul>
+<li>/app/redis目录下修改redis.conf文件</li>
+</ul>
+<p>（1）开启redis验证  可选</p>
+<p>  requirepass 123</p>
+<p>（2）允许redis外地连接 <strong>必须</strong></p>
+<p>   注释掉 # bind 127.0.0.1</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/79.jpg" class="">
+
+<p>（3） daemonize no</p>
+<p>   将daemonize yes注释起来或者 daemonize no设置，因为该配置和docker run中-d参数冲突，会导致容器一直启动失败</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/80.jpg" class="">
+
+<p>（4）开启redis数据持久化 appendonly yes 可选</p>
+<ul>
+<li>使用redis6.0.8镜像创建容器(也叫运行镜像)</li>
+</ul>
+<pre class="language-none"><code class="language-none">docker run  -p 6379:6379 --name myr3 --privileged=true -v /app/redis/redis.conf:/etc/redis/redis.conf -v /app/redis/data:/data -d redis:6.0.8 redis-server /etc/redis/redis.conf</code></pre>
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/81.jpg" class="">
+
+<ul>
+<li>测试redis-cli连接上来</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/82.jpg" class="">
+
+<p><code> docker exec -it 运行着Rediis服务的容器ID</code></p>
+<p><code> redis-cli</code></p>
+<h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><h3 id="1-Docker-复杂安装详说"><a href="#1-Docker-复杂安装详说" class="headerlink" title="1. Docker 复杂安装详说"></a>1. Docker 复杂安装详说</h3><h4 id="1-1-安装mysql主从复制"><a href="#1-1-安装mysql主从复制" class="headerlink" title="1.1 安装mysql主从复制"></a>1.1 安装mysql主从复制</h4><ul>
+<li>新建主服务器容器实例 3307</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -p <span class="token number">3307</span>:3306 --name mysql-master <span class="token punctuation">\</span>
+-v /mydata/mysql-master/log:/var/log/mysql <span class="token punctuation">\</span>
+-v /mydata/mysql-master/data:/var/lib/mysql <span class="token punctuation">\</span>
+-v /mydata/mysql-master/conf:/etc/mysql <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>root  <span class="token punctuation">\</span>
+-d mysql:5.7</code></pre>
+
+<ul>
+<li>进入/mydata/mysql-master/conf目录下新建my.cnf，vim my.cnf</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+<span class="token comment">## 设置server_id，同一局域网中需要唯一</span>
+<span class="token assign-left variable">server_id</span><span class="token operator">=</span><span class="token number">101</span> 
+<span class="token comment">## 指定不需要同步的数据库名称</span>
+binlog-ignore-db<span class="token operator">=</span>mysql  
+<span class="token comment">## 开启二进制日志功能</span>
+log-bin<span class="token operator">=</span>mall-mysql-bin  
+<span class="token comment">## 设置二进制日志使用内存大小（事务）</span>
+<span class="token assign-left variable">binlog_cache_size</span><span class="token operator">=</span>1M  
+<span class="token comment">## 设置使用的二进制日志格式（mixed,statement,row）</span>
+<span class="token assign-left variable">binlog_format</span><span class="token operator">=</span>mixed  
+<span class="token comment">## 二进制日志过期清理时间。默认值为0，表示不自动清理。</span>
+<span class="token assign-left variable">expire_logs_days</span><span class="token operator">=</span><span class="token number">7</span>  
+<span class="token comment">## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。</span>
+<span class="token comment">## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致</span>
+<span class="token assign-left variable">slave_skip_errors</span><span class="token operator">=</span><span class="token number">1062</span></code></pre>
+
+<ul>
+<li>修改完配置后重启master实例</li>
+</ul>
+<p><code>docker restart mysql-master</code></p>
+<ul>
+<li>进入mysql-master容器，登录mysql</li>
+</ul>
+<p><code>docker exec -it mysql-master /bin/bash</code></p>
+<p><code>mysql -uroot -proot</code></p>
+<ul>
+<li>master容器实例内创建数据同步用户</li>
+</ul>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">CREATE USER 'slave'@'%' IDENTIFIED BY '123456';
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'slave'@'%';</code></pre>
+
+<ul>
+<li>新建从服务器容器实例 3308</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -p <span class="token number">3308</span>:3306 --name mysql-slave <span class="token punctuation">\</span>
+-v /mydata/mysql-slave/log:/var/log/mysql <span class="token punctuation">\</span>
+-v /mydata/mysql-slave/data:/var/lib/mysql <span class="token punctuation">\</span>
+-v /mydata/mysql-slave/conf:/etc/mysql <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>root  <span class="token punctuation">\</span>
+-d mysql:5.7</code></pre>
+
+<ul>
+<li>进入/mydata/mysql-slave/conf目录下新建my.cnf，vim my.cnf</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+<span class="token comment">## 设置server_id，同一局域网中需要唯一</span>
+<span class="token assign-left variable">server_id</span><span class="token operator">=</span><span class="token number">102</span>
+<span class="token comment">## 指定不需要同步的数据库名称</span>
+binlog-ignore-db<span class="token operator">=</span>mysql  
+<span class="token comment">## 开启二进制日志功能，以备Slave作为其它数据库实例的Master时使用</span>
+log-bin<span class="token operator">=</span>mall-mysql-slave1-bin  
+<span class="token comment">## 设置二进制日志使用内存大小（事务）</span>
+<span class="token assign-left variable">binlog_cache_size</span><span class="token operator">=</span>1M  
+<span class="token comment">## 设置使用的二进制日志格式（mixed,statement,row）</span>
+<span class="token assign-left variable">binlog_format</span><span class="token operator">=</span>mixed  
+<span class="token comment">## 二进制日志过期清理时间。默认值为0，表示不自动清理。</span>
+<span class="token assign-left variable">expire_logs_days</span><span class="token operator">=</span><span class="token number">7</span>  
+<span class="token comment">## 跳过主从复制中遇到的所有错误或指定类型的错误，避免slave端复制中断。</span>
+<span class="token comment">## 如：1062错误是指一些主键重复，1032错误是因为主从数据库数据不一致</span>
+<span class="token assign-left variable">slave_skip_errors</span><span class="token operator">=</span><span class="token number">1062</span>  
+<span class="token comment">## relay_log配置中继日志</span>
+<span class="token assign-left variable">relay_log</span><span class="token operator">=</span>mall-mysql-relay-bin  
+<span class="token comment">## log_slave_updates表示slave将复制事件写进自己的二进制日志</span>
+<span class="token assign-left variable">log_slave_updates</span><span class="token operator">=</span><span class="token number">1</span>  
+<span class="token comment">## slave设置为只读（具有super权限的用户除外）</span>
+<span class="token assign-left variable">read_only</span><span class="token operator">=</span><span class="token number">1</span></code></pre>
+
+<ul>
+<li>修改完配置后重启slave实例</li>
+</ul>
+<p><code>docker restart mysql-slave</code></p>
+<ul>
+<li>在<strong>主数据库</strong>中查看主从同步状态</li>
+</ul>
+<p><code>show master status;</code></p>
+<ul>
+<li>进入mysql-slave容器，登录mysql</li>
+</ul>
+<p><code>docker exec -it mysql-slave /bin/bash</code></p>
+<p><code>mysql -uroot -proot</code></p>
+<ul>
+<li>在<strong>从数据库</strong>中配置主从复制</li>
+</ul>
+<pre class="language-mysql" data-language="mysql"><code class="language-mysql">change master to master_host='宿主机ip', master_user='slave', master_password='123456', master_port=3307, master_log_file='mall-mysql-bin.000001', master_log_pos=617, master_connect_retry=30;</code></pre>
+
+<ul>
+<li>主从复制命令参数说明：</li>
+</ul>
+<p>master_host：主数据库的IP地址；</p>
+<p>master_port：主数据库的运行端口；</p>
+<p>master_user：在主数据库创建的用于同步数据的用户账号；</p>
+<p>master_password：在主数据库创建的用于同步数据的用户密码；</p>
+<p>master_log_file：指定从数据库要复制数据的日志文件，通过查看主数据的状态，获取File参数；</p>
+<p>master_log_pos：指定从数据库从哪个位置开始复制数据，通过查看主数据的状态，获取Position参数；</p>
+<p>master_connect_retry：连接失败重试的时间间隔，单位为秒。</p>
+<ul>
+<li>在<strong>从数据库</strong>中查看主从同步状态</li>
+</ul>
+<p><code>show slave status \G;</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/83.png" class="">
+
+<ul>
+<li>在<strong>从数据库</strong>中开启主从同步</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/84.png" class="">
+
+<ul>
+<li>再次查看<strong>从数据库</strong>同步状态</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/85.png" class="">
+
+<ul>
+<li>主从复制测试</li>
+</ul>
+<p>主机新建库，使用库，新建表，插入数据；从机使用库，查看记录。</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/86.png" class="">
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/87.png" class="">
+
+<h4 id="1-2-安装redis集群"><a href="#1-2-安装redis集群" class="headerlink" title="1.2 安装redis集群"></a>1.2 安装redis集群</h4>
                 
             </div>
             <hr/>
@@ -1529,7 +1799,7 @@ SIZE：镜像大小
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">23.5k</span>
+                        class="white-color">25k</span>
             
             
             
