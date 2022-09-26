@@ -383,21 +383,21 @@ Docker容器独立运行一个或者一组应用，应用程序或服务">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-22
+                    2022-09-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.8k
+                    10k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    24 分
+                    42 分
                 </div>
                 
 
@@ -1300,7 +1300,609 @@ redis-cli --cluster del-node <span class="token number">192.168</span>.111.147:6
 <p><code> redis-cli  --cluster check 192.168.111.147:6381 </code></p>
 <img src="/2022/09/19/docker-xue-xi-bi-ji/117.jpg" class="">
 
-<h2 id="14-DockerFile解析"><a href="#14-DockerFile解析" class="headerlink" title="14. DockerFile解析"></a>14. DockerFile解析</h2>
+<h2 id="14-DockerFile解析"><a href="#14-DockerFile解析" class="headerlink" title="14. DockerFile解析"></a>14. DockerFile解析</h2><h3 id="14-1-是什么"><a href="#14-1-是什么" class="headerlink" title="14.1 是什么"></a>14.1 是什么</h3><ul>
+<li>Dockerfile是用来构建Docker镜像的文本，是由一条条构建镜像所需的指令和参数构成的脚本。</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/118.jpg" class="">
+
+<ul>
+<li>官网</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference | Docker Documentation</a></p>
+<ul>
+<li>构建三步骤</li>
+</ul>
+<p>（1）编写Dockerfile文件</p>
+<p>（2）docker build 命令构建镜像</p>
+<p>（3）docker run 依镜像运行容器实例</p>
+<h3 id="14-2-Dockerfile构建过程解析"><a href="#14-2-Dockerfile构建过程解析" class="headerlink" title="14.2 Dockerfile构建过程解析"></a>14.2 Dockerfile构建过程解析</h3><ul>
+<li>Dockerfile内容基础知识</li>
+</ul>
+<p>（1）每条保留字指令都必须为大写字母且后面要跟随至少一个参数；</p>
+<p>（2）指令按照从上到下，顺序执行；</p>
+<p>（3）#表示注释；</p>
+<p>（4）每条指令都会创建一个新的镜像层并对镜像进行提交</p>
+<ul>
+<li>Docker执行Dockerfile的大致流程</li>
+</ul>
+<p>（1）docker从基础镜像运行一个容器；</p>
+<p>（2）执行一条指令并对容器作出修改</p>
+<p>（3）执行类似docker commit 的操作提交一个新的镜像层</p>
+<p>（4）docker再基于刚提交的镜像运行一个新容器</p>
+<p>（5）执行Dockerfile中的下一条指令直到所有指令都执行完成</p>
+<h3 id="14-3-Dockerfile常用保留字指令"><a href="#14-3-Dockerfile常用保留字指令" class="headerlink" title="14.3 Dockerfile常用保留字指令"></a>14.3 Dockerfile常用保留字指令</h3><ul>
+<li>参考tomcat8的Dockerfile入门</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/docker-library/tomcat">https://github.com/docker-library/tomcat</a></p>
+<ul>
+<li>FROM</li>
+</ul>
+<p>基础镜像，当前新镜像是基于哪个镜像的，指定一个已经存在的镜像作为模板，第一条必须是from</p>
+<ul>
+<li>MAINTAINER</li>
+</ul>
+<p>镜像维护者的姓名和邮箱地址</p>
+<ul>
+<li>RUN</li>
+</ul>
+<p>容器构建时需要运行的命令，RUN是在docker build时运行，RUN有两种格式</p>
+<p>shell格式</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/119.jpg" class="">
+
+<p><code>RUN yum -y install vim</code></p>
+<p>exec格式</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/120.jpg" class="">
+
+<ul>
+<li>EXPOSE</li>
+</ul>
+<p>当前容器对外暴露出的端口</p>
+<ul>
+<li>WORKDIR</li>
+</ul>
+<p>指定在创建容器后，终端默认登录进来的工作目录，一个落脚点</p>
+<ul>
+<li>USER</li>
+</ul>
+<p>指定该镜像以什么样的用户去执行，如果都不指定，默认是root</p>
+<ul>
+<li>ENV</li>
+</ul>
+<p>用来构建镜像过程中设置环境变量</p>
+<p>ENV MY_PATH /usr/mytest</p>
+<p>这个环境变量可以在后续的任何RUN指令中使用，这就如同在命令前面指定了环境变量前缀一样；也可以在其它指令中直接使用这些环境变量，</p>
+<p>比如：WORKDIR $MY_PATH</p>
+<ul>
+<li>ADD</li>
+</ul>
+<p>将宿主机目录下的文件拷贝进镜像且会自动处理URL和解压tar压缩包</p>
+<ul>
+<li>COPY</li>
+</ul>
+<p>类似ADD，拷贝文件和目录到镜像中。将从构建上下文目录中&lt;源路径&gt;的文件/目录复制到新的一层的镜像内的&lt;目标路径&gt;位置</p>
+<p>COPY src dest、COPY [“src”, “dest”]；</p>
+<p>&lt;src源路径&gt;：源文件或者源目录</p>
+<p>&lt;dest目标路径&gt;：容器内的指定路径，该路径不用事先建好，路径不存在的话，会自动创建。</p>
+<ul>
+<li>VOLUME</li>
+</ul>
+<p>容器数据卷，用于数据保存和持久化工作</p>
+<ul>
+<li>CMD</li>
+</ul>
+<p>指定容器启动后要干的事情</p>
+
+
+<p><strong>注意：</strong>Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 docker run 之后的参数替换</p>
+<p>用/bin/bash覆盖原有的CMD，访问tomcat不出现猫首页</p>
+
+
+
+
+<ul>
+<li>ENTRYPOINT</li>
+</ul>
+<p>类似于 CMD 指令，但是ENTRYPOINT不会被docker run后面的命令覆盖， 而且这些命令行参数会被当作参数送给 ENTRYPOINT 指令指定的程序</p>
+<p>命令格式：ENTRYPOINT [“<executeable>“, “<param1>“, “<param2>“, …]</param2></param1></executeable></p>
+<p>ENTRYPOINT可以和C MD一起用，一般是变参才会使用 CMD ，这里的 CMD 等于是在给 ENTRYPOINT 传参。</p>
+<p>当指定了ENTRYPOINT后，CMD的含义就发生了变化，不再是直接运行其命令而是将CMD的内容作为参数传递给ENTRYPOINT指令，他两个组合会变成：<entrypoint>“<cmd>“</cmd></entrypoint></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/124.jpg" class="">
+
+<table>
+<thead>
+<tr>
+<th>是否传参</th>
+<th>按照dockerfile编写执行</th>
+<th>传参运行</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker命令</td>
+<td>docker run   nginx:test</td>
+<td>docker run   nginx:test -c /etc/nginx/<strong>new.conf</strong></td>
+</tr>
+<tr>
+<td>衍生出的实际命令</td>
+<td>nginx -c  /etc/nginx/nginx.conf</td>
+<td>nginx -c  /etc/nginx/<strong>new.conf</strong></td>
+</tr>
+</tbody></table>
+<h3 id="14-4-案例"><a href="#14-4-案例" class="headerlink" title="14.4 案例"></a>14.4 案例</h3><ul>
+<li>自定义镜像ymcentosjava8</li>
+</ul>
+<p>要求：CentOS7 镜像具备vim+ifconfig+jdk8</p>
+<ul>
+<li>准备JDK gz压缩包，编写Dockerfile文件</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/125.png" class="">
+
+<pre class="language-bash" data-language="bash"><code class="language-bash">FROM centos:7
+MAINTAINER zzyy<span class="token operator">&lt;</span>zzyybs@126.com<span class="token operator">&gt;</span>
+ 
+ENV MYPATH /usr/local
+WORKDIR <span class="token variable">$MYPATH</span>
+ 
+<span class="token comment">#安装vim编辑器</span>
+RUN yum -y <span class="token function">install</span> <span class="token function">vim</span>
+<span class="token comment">#安装ifconfig命令查看网络IP</span>
+RUN yum -y <span class="token function">install</span> net-tools
+<span class="token comment">#安装java8及lib库</span>
+RUN yum -y <span class="token function">install</span> glibc.i686
+RUN <span class="token function">mkdir</span> /usr/local/java
+<span class="token comment">#ADD 是相对路径jar,把jdk-8u171-linux-x64.tar.gz添加到容器中,安装包必须要和Dockerfile文件在同一位置</span>
+ADD jdk-8u171-linux-x64.tar.gz /usr/local/java/
+<span class="token comment">#配置java环境变量</span>
+ENV JAVA_HOME /usr/local/java/jdk1.8.0_171
+ENV JRE_HOME <span class="token variable">$JAVA_HOME</span>/jre
+ENV CLASSPATH <span class="token variable">$JAVA_HOME</span>/lib/dt.jar:<span class="token variable">$JAVA_HOME</span>/lib/tools.jar:<span class="token variable">$JRE_HOME</span>/lib:<span class="token variable">$CLASSPATH</span>
+ENV <span class="token environment constant">PATH</span> <span class="token variable">$JAVA_HOME</span>/bin:<span class="token environment constant">$PATH</span>
+ 
+EXPOSE <span class="token number">80</span>
+ 
+CMD <span class="token builtin class-name">echo</span> <span class="token variable">$MYPATH</span>
+CMD <span class="token builtin class-name">echo</span> <span class="token string">"success--------------ok"</span>
+CMD /bin/bash</code></pre>
+
+<ul>
+<li>构建</li>
+</ul>
+<p><code>docker build -t 新镜像名字:TAG</code></p>
+<p>docker build -t centosjava8:1.5 .</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/126.png" class="">
+
+<p><strong>注意：</strong>上面TAG后面有个空格，有个点</p>
+<ul>
+<li>运行</li>
+</ul>
+<p><code>docker run -it 新镜像名字:TAG</code></p>
+<p>docker run -it centosjava8:1.5 /bin/bash</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/127.png" class="">
+
+<h3 id="14-5-虚悬镜像"><a href="#14-5-虚悬镜像" class="headerlink" title="14.5 虚悬镜像"></a>14.5 虚悬镜像</h3><p>虚悬镜像：仓库名、标签都是<none>的镜像，俗称dangling image</none></p>
+<ul>
+<li>Dockerfile编写一个虚悬镜像</li>
+</ul>
+<ol>
+<li>vim Dockerfile</li>
+</ol>
+<pre class="language-none"><code class="language-none">from ubuntu
+CMD echo 'action is success'</code></pre>
+
+<ol start="2">
+<li>docker build</li>
+</ol>
+<ul>
+<li>查看</li>
+</ul>
+<p><code>docker image ls -f dangling=true</code></p>
+<ul>
+<li>删除</li>
+</ul>
+<p><code>docker image prune</code></p>
+<p>虚悬镜像已经失去存在价值，可以删除</p>
+<h2 id="15-Docker微服务实战"><a href="#15-Docker微服务实战" class="headerlink" title="15. Docker微服务实战"></a>15. Docker微服务实战</h2><h3 id="15-1-通过IDEA新建一个普通微服务模块"><a href="#15-1-通过IDEA新建一个普通微服务模块" class="headerlink" title="15.1 通过IDEA新建一个普通微服务模块"></a>15.1 通过IDEA新建一个普通微服务模块</h3><ul>
+<li>建Module<ul>
+<li>docker-boot</li>
+</ul>
+</li>
+<li>改POM</li>
+</ul>
+<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+         <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>cloud2020<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.woniu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">&gt;</span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>docker-boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>UTF-8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project.build.sourceEncoding</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.source</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.source</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>maven.compiler.target</span><span class="token punctuation">&gt;</span></span>1.8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>maven.compiler.target</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!--SpringBoot通用依赖模块--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-actuator<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+        <span class="token comment">&lt;!--test--&gt;</span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">&gt;</span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>executions</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>execution</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>goals</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>goal</span><span class="token punctuation">&gt;</span></span>repackage<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>goal</span><span class="token punctuation">&gt;</span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>goal</span><span class="token punctuation">&gt;</span></span>build-info<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>goal</span><span class="token punctuation">&gt;</span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>goals</span><span class="token punctuation">&gt;</span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>execution</span><span class="token punctuation">&gt;</span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>executions</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">&gt;</span></span>
+
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+
+<ul>
+<li>写YML</li>
+</ul>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">6001</span></code></pre>
+
+<ul>
+<li>主启动</li>
+</ul>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>woniu</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DockerBootApplication</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">DockerBootApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+
+<ul>
+<li>业务类</li>
+</ul>
+<pre class="language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>woniu<span class="token punctuation">.</span>controller</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>beans<span class="token punctuation">.</span>factory<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Value</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMethod</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">UUID</span></span><span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@RestController</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderController</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Value</span><span class="token punctuation">(</span><span class="token string">"${server.port}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> port<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/order/docker"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">helloDocker</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"hello docker"</span> <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> port <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/order/index"</span><span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token class-name">RequestMethod</span><span class="token punctuation">.</span>GET<span class="token punctuation">)</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token string">"服务端口号: "</span> <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> port <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> UUID<span class="token punctuation">.</span><span class="token function">randomUUID</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span></code></pre>
+
+<h3 id="15-2-通过Dockerfile发布微服务部署"><a href="#15-2-通过Dockerfile发布微服务部署" class="headerlink" title="15.2 通过Dockerfile发布微服务部署"></a>15.2 通过Dockerfile发布微服务部署</h3><ul>
+<li>IDEA工具里面搞定微服务jar包</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/128.png" class="">
+
+<ul>
+<li>编写Dockerfile</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础镜像使用java</span>
+FROM java:8
+<span class="token comment"># 作者</span>
+MAINTAINER woniu
+<span class="token comment"># VOLUME 指定临时文件目录为/tmp，在主机/var/lib/docker目录下创建了一个临时文件并链接到容器的/tmp</span>
+VOLUME /tmp
+<span class="token comment"># 将jar包添加到容器中并更名为zzyy_docker.jar</span>
+ADD docker-boot-1.0-SNAPSHOT.jar zzyy_docker.jar
+<span class="token comment"># 运行jar包</span>
+RUN <span class="token function">bash</span> -c <span class="token string">'touch /zzyy_docker.jar'</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">"java"</span>,<span class="token string">"-jar"</span>,<span class="token string">"/zzyy_docker.jar"</span><span class="token punctuation">]</span>
+<span class="token comment">#暴露6001端口作为微服务</span>
+EXPOSE <span class="token number">6001</span></code></pre>
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/129.png" class="">
+
+<ul>
+<li>构建镜像</li>
+</ul>
+<p><code>docker build -t zzyy_docker:1.6 .</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/130.png" class="">
+
+<ul>
+<li>运行容器</li>
+</ul>
+<p><code>docker run -d -p 6001:6001 zzyy_docker:1.6</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/131.png" class="">
+
+<ul>
+<li>访问测试</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/132.png" class="">
+
+<h2 id="16-Docker网络"><a href="#16-Docker网络" class="headerlink" title="16. Docker网络"></a>16. Docker网络</h2><ul>
+<li>docker启动后，会产生一个名为docker0的虚拟网桥</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/133.jpg" class="">
+
+<ul>
+<li>查看docker网络模式命令，默认创建3大网络模式</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/134.jpg" class="">
+
+<ul>
+<li>常用基本命令</li>
+</ul>
+<pre class="language-none"><code class="language-none">查看网络：docker network ls
+查看网络源数据：docker network inspect xxx网络名字
+删除网络：docker network rm xxx网络名字</code></pre>
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/135.jpg" class="">
+
+<h3 id="16-1-网络模式"><a href="#16-1-网络模式" class="headerlink" title="16.1 网络模式"></a>16.1 网络模式</h3><ul>
+<li>总体介绍</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/136.jpg" class="">
+
+<pre class="language-none"><code class="language-none">bridge模式：使用--network  bridge指定，默认使用docker0
+host模式：使用--network host指定
+none模式：使用--network none指定
+container模式：使用--network container:NAME或者容器ID指定</code></pre>
+
+<p>docker 容器内部的ip是有可能会发生改变的</p>
+<h4 id="16-1-1-bridge"><a href="#16-1-1-bridge" class="headerlink" title="16.1.1 bridge"></a>16.1.1 bridge</h4><p>Docker 服务默认会创建一个 docker0 网桥（其上有一个 docker0 内部接口），该桥接网络的名称为docker0，它在内核层连通了其他的物理或虚拟网卡，这就将所有容器和本地主机都放到同一个物理网络。Docker 默认指定了 docker0 接口 的 IP 地址和子网掩码，让主机和容器之间可以通过网桥相互通信。</p>
+<ol>
+<li><p>Docker使用Linux桥接，在宿主机虚拟一个Docker容器网桥(docker0)，Docker启动一个容器时会根据Docker网桥的网段分配给容器一个IP地址，称为Container-IP，同时Docker网桥是每个容器的默认网关。因为在同一宿主机内的容器都接入同一个网桥，这样容器之间就能够通过容器的Container-IP直接通信。</p>
+</li>
+<li><p>docker run 的时候，没有指定network的话默认使用的网桥模式就是bridge，使用的就是docker0。在宿主机ifconfig,就可以看到docker0和自己create的network(后面讲)eth0，eth1，eth2……代表网卡一，网卡二，网卡三……，lo代表127.0.0.1，即localhost，inet addr用来表示网卡的IP地址</p>
+</li>
+<li><p>网桥docker0创建一对对等虚拟设备接口一个叫veth，另一个叫eth0，成对匹配。</p>
+</li>
+</ol>
+<p>  3.1 整个宿主机的网桥模式都是docker0，类似一个交换机有一堆接口，每个接口叫veth，在本地主机和容器内分别创建一个虚拟接口，并让他们彼此联通（这样一对接口叫veth pair）；</p>
+<p>  3.2 每个容器实例内部也有一块网卡，每个接口叫eth0；</p>
+<p>  3.3 docker0上面的每个veth匹配某个容器实例内部的eth0，两两配对，一一匹配。</p>
+<p> 通过上述，将宿主机上的所有容器都连接到这个内部网络上，两个容器在同一个网络下,会从这个网关下各自拿到分配的ip，此时两个容器的网络是互通的。</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/137.jpg" class="">	
+
+<ul>
+<li>两两匹配验证</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/138.jpg" class="">
+
+<h4 id="16-1-2-host"><a href="#16-1-2-host" class="headerlink" title="16.1.2 host"></a>16.1.2 host</h4><p>直接使用宿主机的 IP 地址与外界进行通信，不再需要额外进行NAT 转换。</p>
+<p>容器将不会获得一个独立的Network Namespace， 而是和宿主机共用一个Network Namespace。容器将不会虚拟出自己的网卡而是使用宿主机的IP和端口。</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/139.jpg" class="">
+
+<p><code>docker run -d -p 8083:8080 --network host --name tomcat83 billygoo/tomcat8-jdk8</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/140.jpg" class="">
+
+<ul>
+<li><p>问题：</p>
+<p> docke启动时总是遇见标题中的警告</p>
+</li>
+<li><p>原因：</p>
+<p>docker启动时指定–network=host或-net=host，如果还指定了-p映射端口，那这个时候就会有此警告，</p>
+</li>
+</ul>
+<p>并且通过-p设置的参数将不会起到任何作用，端口号会以主机端口号为主，重复时则递增。</p>
+<ul>
+<li><p>解决:</p>
+<p>解决的办法就是使用docker的其他网络模式，例如–network=bridge，这样就可以解决问题，或者直接无视</p>
+</li>
+</ul>
+<p><code>docker run -d --network host --name tomcat83 billygoo/tomcat8-jdk8</code></p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/141.jpg" class="">
+
+<ul>
+<li>没有设置-p的端口映射了，如何访问启动的tomcat83？</li>
+</ul>
+<p><code>http://宿主机IP:8080/</code></p>
+<p>在CentOS里面用默认的火狐浏览器访问容器内的tomcat83看到访问成功，因为此时容器的IP借用主机的，</p>
+<p>所以容器共享宿主机网络IP，这样的好处是外部主机与容器可以直接通信。</p>
+<h4 id="16-1-3-none"><a href="#16-1-3-none" class="headerlink" title="16.1.3 none"></a>16.1.3 none</h4><p>在none模式下，并不为Docker容器进行任何网络配置。 也就是说，这个Docker容器没有网卡、IP、路由等信息，只有一个lo，需要我们自己为Docker容器添加网卡、配置IP等。</p>
+<p><code>docker run -d -p 8084:8080 --network none --name tomcat84 billygoo/tomcat8-jdk8</code></p>
+<ul>
+<li>进入容器内部查看</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/142.jpg" class="">
+
+<ul>
+<li>在容器外部查看</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/143.jpg" class="">
+
+<h4 id="16-1-4-container"><a href="#16-1-4-container" class="headerlink" title="16.1.4 container"></a>16.1.4 container</h4><p>container⽹络模式 </p>
+<p>新建的容器和已经存在的一个容器共享一个网络ip配置而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的IP，而是和一个指定的容器共享IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。</p>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/144.jpg" class="">
+
+<h4 id="16-1-5-自定义网络"><a href="#16-1-5-自定义网络" class="headerlink" title="16.1.5 自定义网络"></a>16.1.5 自定义网络</h4><ul>
+<li>新建自定义网络</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/145.jpg" class="">
+
+<ul>
+<li>新建容器加入上一步新建的自定义网络</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run -d -p <span class="token number">8081</span>:8080 --network zzyy_network  --name tomcat81 billygoo/tomcat8-jdk8
+<span class="token function">docker</span> run -d -p <span class="token number">8082</span>:8080 --network zzyy_network  --name tomcat82 billygoo/tomcat8-jdk8</code></pre>
+
+<ul>
+<li>相互ping测试</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/146.jpg" class="">
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/147.jpg" class="">
+
+<ul>
+<li>问题结论</li>
+</ul>
+<p>自定义网络本身就维护好了主机名和ip的对应关系（ip和域名都能通）</p>
+<h2 id="17-Docker-conpose-容器编排"><a href="#17-Docker-conpose-容器编排" class="headerlink" title="17. Docker-conpose 容器编排"></a>17. Docker-conpose 容器编排</h2><h3 id="17-1-是什么"><a href="#17-1-是什么" class="headerlink" title="17.1 是什么"></a>17.1 是什么</h3><p>Compose 是 Docker 公司推出的一个工具软件，可以管理多个 Docker 容器组成一个应用。你需要定义一个 YAML 格式的配置文件docker-compose.yml，写好多个容器之间的调用关系。然后，只要一个命令，就能同时启动/关闭这些容器</p>
+<ul>
+<li>Docker-Compose是Docker官方的开源项目， 负责实现对Docker容器集群的快速编排</li>
+</ul>
+<h3 id="17-2-能干什么"><a href="#17-2-能干什么" class="headerlink" title="17.2 能干什么"></a>17.2 能干什么</h3><p>docker建议我们每一个容器中只运行一个服务,因为docker容器本身占用资源极少,所以最好是将每个服务单独的分割开来但是这样我们又面临了一个问题？</p>
+<p>如果我需要同时部署好多个服务,难道要每个服务单独写Dockerfile然后在构建镜像,构建容器,这样累都累死了,所以docker官方给我们提供了docker-compose多服务部署的工具</p>
+<p>例如要实现一个Web微服务项目，除了Web服务容器本身，往往还需要再加上后端的数据库mysql服务容器，redis服务器，注册中心eureka，甚至还包括负载均衡容器等等。。。。。。</p>
+<p>Compose允许用户通过一个单独的docker-compose.yml模板文件（YAML 格式）来定义一组相关联的应用容器为一个项目（project）。</p>
+<p>可以很容易地用一个配置文件定义一个多容器的应用，然后使用一条指令安装这个应用的所有依赖，完成构建。Docker-Compose 解决了容器与容器之间如何管理编排的问题。</p>
+<h3 id="17-3-下载"><a href="#17-3-下载" class="headerlink" title="17.3 下载"></a>17.3 下载</h3><p><code>https://docs.docker.com/compose/compose-file/compose-file-v3/</code></p>
+<p><code>https://docs.docker.com/compose/install/</code></p>
+<ul>
+<li>安装步骤</li>
+</ul>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> -L <span class="token string">"https://github.com/docker/compose/releases/download/1.29.2/docker-compose-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -s<span class="token variable">)</span></span>-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -m<span class="token variable">)</span></span>"</span> -o /usr/local/bin/docker-compose
+
+<span class="token function">chmod</span> +x /usr/local/bin/docker-compose
+
+<span class="token function">docker-compose</span> --version</code></pre>
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/148.jpg" class="">
+
+<ul>
+<li>卸载</li>
+</ul>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/149.jpg" class="">
+
+<h3 id="17-4-Compose-核心概念"><a href="#17-4-Compose-核心概念" class="headerlink" title="17.4 Compose 核心概念"></a>17.4 Compose 核心概念</h3><ul>
+<li>一文件</li>
+</ul>
+<p>docker-compose.yml</p>
+<ul>
+<li>两要素</li>
+</ul>
+<p>服务：一个个应用容器实例，比如订单微服务、库存微服务、mysql容器、nginx容器或者redis容器</p>
+<p>工程：由一组关联的应用容器组成的一个完整业务单元，在 docker-compose.yml 文件中定义</p>
+<h3 id="17-5-Compose-使用三步骤"><a href="#17-5-Compose-使用三步骤" class="headerlink" title="17.5 Compose 使用三步骤"></a>17.5 Compose 使用三步骤</h3><ol>
+<li>编写Dockerfile定义各个微服务应用并构建出对应的镜像文件</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 基础镜像使用java</span>
+FROM java:8
+<span class="token comment"># 作者</span>
+MAINTAINER zzyy
+<span class="token comment"># VOLUME 指定临时文件目录为/tmp，在主机/var/lib/docker目录下创建了一个临时文件并链接到容器的/tmp</span>
+VOLUME /tmp
+<span class="token comment"># 将jar包添加到容器中并更名为zzyy_docker.jar</span>
+ADD docker_boot-0.0.1-SNAPSHOT.jar zzyy_docker.jar
+<span class="token comment"># 运行jar包</span>
+RUN <span class="token function">bash</span> -c <span class="token string">'touch /zzyy_docker.jar'</span>
+ENTRYPOINT <span class="token punctuation">[</span><span class="token string">"java"</span>,<span class="token string">"-jar"</span>,<span class="token string">"/zzyy_docker.jar"</span><span class="token punctuation">]</span>
+<span class="token comment">#暴露6001端口作为微服务</span>
+EXPOSE <span class="token number">6001</span></code></pre>
+
+<p>构建进行：<code>docker build -t zzyy_docker:1.6 .</code></p>
+<ol start="2">
+<li>使用 docker-compose.yml 定义一个完整业务单元，安排好整体应用中的各个容器服务。</li>
+</ol>
+<pre class="language-bash" data-language="bash"><code class="language-bash">version: <span class="token string">"3"</span>
+ 
+services:
+  microService:
+    image: zzyy_docker:1.6
+    container_name: ms01
+    ports:
+      - <span class="token string">"6001:6001"</span>
+    volumes:
+      - /app/microService:/data
+    networks: 
+      - atguigu_net 
+    depends_on: 
+      - redis
+      - mysql
+ 
+  redis:
+    image: redis:6.0.8
+    ports:
+      - <span class="token string">"6379:6379"</span>
+    volumes:
+      - /app/redis/redis.conf:/etc/redis/redis.conf
+      - /app/redis/data:/data
+    networks: 
+      - atguigu_net
+    command: redis-server /etc/redis/redis.conf
+ 
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: <span class="token string">'123456'</span>
+      MYSQL_ALLOW_EMPTY_PASSWORD: <span class="token string">'no'</span>
+      MYSQL_DATABASE: <span class="token string">'db2021'</span>
+      MYSQL_USER: <span class="token string">'zzyy'</span>
+      MYSQL_PASSWORD: <span class="token string">'zzyy123'</span>
+    ports:
+       - <span class="token string">"3306:3306"</span>
+    volumes:
+       - /app/mysql/db:/var/lib/mysql
+       - /app/mysql/conf/my.cnf:/etc/my.cnf
+       - /app/mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - atguigu_net
+    command: --default-authentication-plugin<span class="token operator">=</span>mysql_native_password <span class="token comment">#解决外部无法访问</span>
+ 
+networks: 
+   atguigu_net: </code></pre>
+
+<ol start="3">
+<li>最后，执行docker-compose up命令 来启动并运行整个应用程序，完成一键部署上线</li>
+</ol>
+<img src="/2022/09/19/docker-xue-xi-bi-ji/150.jpg" class="">
+
+<img src="/2022/09/19/docker-xue-xi-bi-ji/151.jpg" class="">
+
+<h3 id="17-6-Compose-常用命令"><a href="#17-6-Compose-常用命令" class="headerlink" title="17.6 Compose 常用命令"></a>17.6 Compose 常用命令</h3><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker-compose</span> -h                           <span class="token comment"># 查看帮助</span>
+<span class="token function">docker-compose</span> up                           <span class="token comment"># 启动所有docker-compose服务</span>
+<span class="token function">docker-compose</span> up -d                        <span class="token comment"># 启动所有docker-compose服务并后台运行</span>
+<span class="token function">docker-compose</span> down                         <span class="token comment"># 停止并删除容器、网络、卷、镜像。</span>
+<span class="token function">docker-compose</span> <span class="token builtin class-name">exec</span>  yml里面的服务id                 <span class="token comment"># 进入容器实例内部  docker-compose exec docker-compose.yml文件中写的服务id /bin/bash</span>
+<span class="token function">docker-compose</span> <span class="token function">ps</span>                      <span class="token comment"># 展示当前docker-compose编排过的运行的所有容器</span>
+<span class="token function">docker-compose</span> <span class="token function">top</span>                     <span class="token comment"># 展示当前docker-compose编排过的容器进程</span>
+ 
+<span class="token function">docker-compose</span> logs  yml里面的服务id     <span class="token comment"># 查看容器输出日志</span>
+<span class="token function">docker-compose</span> config     <span class="token comment"># 检查配置</span>
+<span class="token function">docker-compose</span> config -q  <span class="token comment"># 检查配置，有问题才有输出</span>
+<span class="token function">docker-compose</span> restart   <span class="token comment"># 重启服务</span>
+<span class="token function">docker-compose</span> start     <span class="token comment"># 启动服务</span>
+<span class="token function">docker-compose</span> stop      <span class="token comment"># 停止服务</span></code></pre>
+
+<h2 id="18-Docker轻量级可视化工具Portainer"><a href="#18-Docker轻量级可视化工具Portainer" class="headerlink" title="18. Docker轻量级可视化工具Portainer"></a>18. Docker轻量级可视化工具Portainer</h2><p><code>https://www.portainer.io/</code></p>
+<p><code>https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux</code></p>
+<h2 id="19-Docekr容器监控之-CAdvisor-InfluxDB-Granfana"><a href="#19-Docekr容器监控之-CAdvisor-InfluxDB-Granfana" class="headerlink" title="19. Docekr容器监控之 CAdvisor+InfluxDB+Granfana"></a>19. Docekr容器监控之 CAdvisor+InfluxDB+Granfana</h2>
                 
             </div>
             <hr/>
@@ -2037,7 +2639,7 @@ redis-cli --cluster del-node <span class="token number">192.168</span>.111.147:6
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">26.3k</span>
+                        class="white-color">30.5k</span>
             
             
             
