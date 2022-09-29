@@ -6,7 +6,7 @@
   <link href="https://fyi-z.github.io/atom.xml" rel="self"/>
   
   <link href="https://fyi-z.github.io/"/>
-  <updated>2022-09-26T02:02:22.548Z</updated>
+  <updated>2022-09-29T09:27:12.081Z</updated>
   <id>https://fyi-z.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RabbitMQ笔记</title>
+    <link href="https://fyi-z.github.io/2022/09/27/rabbitmq-bi-ji/"/>
+    <id>https://fyi-z.github.io/2022/09/27/rabbitmq-bi-ji/</id>
+    <published>2022-09-27T08:28:15.000Z</published>
+    <updated>2022-09-29T09:27:12.081Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;MQ相关概念&quot;&gt;&lt;a href=&quot;#MQ相关概念&quot; class=&quot;headerlink&quot; title=&quot;MQ相关概念&quot;&gt;&lt;/a&gt;MQ相关概念&lt;/h2&gt;&lt;h3 id=&quot;什么事MQ&quot;&gt;&lt;a href=&quot;#什么事MQ&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="中间件" scheme="https://fyi-z.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+    <category term="MQ" scheme="https://fyi-z.github.io/tags/MQ/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker学习笔记</title>
