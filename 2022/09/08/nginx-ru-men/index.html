@@ -53,9 +53,9 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.2.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="奔跑的蜗牛" type="application/atom+xml">
 </head>
 
 
@@ -430,12 +430,12 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 <ul>
 <li>正向代理：代理客户端</li>
 </ul>
-<img src="/2022/09/08/nginx-ru-men/01.png" class="">
+<img src="/2022/09/08/nginx-ru-men/01.png" class>
 
 <ul>
 <li>反向代理：代理服务器</li>
 </ul>
-<img src="/2022/09/08/nginx-ru-men/02.png" class="">
+<img src="/2022/09/08/nginx-ru-men/02.png" class>
 
 <div class="note success no-icon"><p>Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。扩展策略，就天马行空，只有你想不到的没有他做不到的。</p>
 </div>
@@ -443,35 +443,35 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 <ul>
 <li>轮询</li>
 </ul>
-<img src="/2022/09/08/nginx-ru-men/03.png" class="">
+<img src="/2022/09/08/nginx-ru-men/03.png" class>
 
 <ul>
 <li>加权轮询（可根据服务器性能设置权重，处理更多请求）</li>
 </ul>
-<img src="/2022/09/08/nginx-ru-men/04.png" class="">
+<img src="/2022/09/08/nginx-ru-men/04.png" class>
 
 <ul>
 <li>iphash对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。</li>
 </ul>
-<img src="/2022/09/08/nginx-ru-men/05.png" class="">
+<img src="/2022/09/08/nginx-ru-men/05.png" class>
 
 <div class="note success no-icon"><p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的（如：css、html、jpg、js等等文件），这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p>
 </div>
 
-<img src="/2022/09/08/nginx-ru-men/06.png" class="">
+<img src="/2022/09/08/nginx-ru-men/06.png" class>
 
 <h2 id="3-Nginx安装"><a href="#3-Nginx安装" class="headerlink" title="3. Nginx安装"></a>3. Nginx安装</h2><h3 id="3-1-windows下安装"><a href="#3-1-windows下安装" class="headerlink" title="3.1 windows下安装"></a>3.1 windows下安装</h3><h4 id="3-1-1-下载nginx"><a href="#3-1-1-下载nginx" class="headerlink" title="3.1.1 下载nginx"></a>3.1.1 下载nginx</h4><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> 下载稳定版本。<br>以nginx/Windows-1.16.1为例，直接下载 nginx-1.16.1.zip。<br>下载后解压，解压后如下：</p>
-<img src="/2022/09/08/nginx-ru-men/07.png" class="">
+<img src="/2022/09/08/nginx-ru-men/07.png" class>
 
 <h4 id="3-1-2-启动nginx"><a href="#3-1-2-启动nginx" class="headerlink" title="3.1.2 启动nginx"></a>3.1.2 启动nginx</h4><ol>
 <li>直接双击nginx.exe，双击后一个黑色的弹窗一闪而过</li>
 <li>打开cmd命令窗口，切换到nginx解压目录下，输入命令 <code>nginx.exe</code> ，回车即可</li>
 </ol>
 <h4 id="3-1-3-检查nginx是否启动成功"><a href="#3-1-3-检查nginx是否启动成功" class="headerlink" title="3.1.3 检查nginx是否启动成功"></a>3.1.3 检查nginx是否启动成功</h4><p>直接在浏览器地址栏输入网址 <a target="_blank" rel="noopener" href="http://localhost/">http://localhost:80</a> 回车，出现以下页面说明启动成功！</p>
-<img src="/2022/09/08/nginx-ru-men/08.png" class="">
+<img src="/2022/09/08/nginx-ru-men/08.png" class>
 
 <h4 id="3-1-4-配置监听"><a href="#3-1-4-配置监听" class="headerlink" title="3.1.4 配置监听"></a>3.1.4 配置监听</h4><p>nginx的配置文件是conf目录下的nginx.conf，默认配置的nginx监听的端口为80，如果80端口被占用可以修改为未被占用的端口即可。</p>
-<img src="/2022/09/08/nginx-ru-men/09.png" class="">
+<img src="/2022/09/08/nginx-ru-men/09.png" class>
 
 <p>当我们修改了nginx的配置文件nginx.conf 时，不需要关闭nginx后重新启动nginx，只需要执行命令 <code>nginx -s reload</code> 即可让改动生效</p>
 <h4 id="3-1-5-关闭nginx"><a href="#3-1-5-关闭nginx" class="headerlink" title="3.1.5 关闭nginx"></a>3.1.5 关闭nginx</h4><p>如果使用cmd命令窗口启动nginx， 关闭cmd窗口是不能结束nginx进程的，可使用两种方法关闭nginx</p>
@@ -495,7 +495,7 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 <pre class="language-none"><code class="language-none">yum install -y openssl openssl-devel</code></pre>
 
 <h4 id="3-2-5-下载安装包"><a href="#3-2-5-下载安装包" class="headerlink" title="3.2.5 下载安装包"></a>3.2.5 下载安装包</h4><p>手动下载.tar.gz安装包，地址：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a></p>
-<img src="/2022/09/08/nginx-ru-men/10.png" class="">
+<img src="/2022/09/08/nginx-ru-men/10.png" class>
 
 <p>下载完毕上传到服务器</p>
 <h4 id="3-2-6-解压"><a href="#3-2-6-解压" class="headerlink" title="3.2.6 解压"></a>3.2.6 解压</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-1.18.0.tar.gz
@@ -515,7 +515,7 @@ Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时�
 <span class="token function">ps</span> aux<span class="token operator">|</span><span class="token function">grep</span> nginx  查看nginx进程</code></pre>
 
 <p>启动成功访问 服务器ip:80</p>
-<img src="/2022/09/08/nginx-ru-men/11.png" class="">
+<img src="/2022/09/08/nginx-ru-men/11.png" class>
 
 <p>注意：如何连接不上，检查阿里云安全组是否开放端口，或者服务器防火墙是否开放端口！<br>相关命令：</p>
 <pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 开启</span>
@@ -1323,7 +1323,7 @@ http {     #http配置
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">49.8k</span>
+                        class="white-color">52.2k</span>
             
             
             
